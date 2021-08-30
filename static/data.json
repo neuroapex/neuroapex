@@ -2,7 +2,7 @@
   "tools": [
     {
       "name": "Freesurfer",
-      "description": "Cortical surface modeling tool",
+      "description": "Freesurfer is nn open source software suite for processing and analyzing (human) brain MRI images, particularly for cortical surface modeling.",
       "url": "https://surfer.nmr.mgh.harvard.edu/",
       "tags": ["structural", "cortex", "surface"]
     },
@@ -10,7 +10,61 @@
       "name": "FSL",
       "description": "FSL is a comprehensive library of analysis tools for FMRI, MRI and DTI brain imaging data",
       "url": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FSL",
-      "tags": ["multimodal", "structural", "functional", "diffusion"]
+      "tags": ["multimodal", "structural", "functional", "diffusion", "registration"]
+    },
+    {
+      "name": "QIT",
+      "description": "The Quantitative Imaging Toolkit (QIT) is a software package of computational tools for the modeling, analysis, and visualization of scientific imaging data.",
+      "url": "https://cabeen.io/qitwiki/",
+      "tags": ["multimodal", "structural", "diffusion", "visualization", "data exploration"]
+    },
+    {
+      "name": "SPM",
+      "description": "Statistical Parametric Mapping refers to the construction and assessment of spatially extended statistical processes used to test hypotheses about functional imaging data. ",
+      "url": "https://www.fil.ion.ucl.ac.uk/spm/",
+      "tags": ["multimodal", "functional", "diffusion", "statistics"]
+    },
+    {
+      "name": "3D Slicer",
+      "description": "3D Slicer is a free, open source and multi-platform software package widely used for medical, biomedical, and related imaging research.",
+      "url": "https://www.slicer.org/",
+      "tags": ["registration", "surgical planning", "visualization", "development", "multimodal", "structural", "functional", "diffusion"]
+    },
+    {
+      "name": "DIPY",
+      "description": "DIPY is the paragon 3D/4D+ imaging library in Python. Contains generic methods for spatial normalization, signal processing, machine learning, statistical analysis and visualization of medical images. Additionally, it contains specialized methods for computational anatomy including diffusion, perfusion and structural imaging.",
+      "url": "https://dipy.org/",
+      "tags": ["development", "diffusion", "visualization"]
+    },
+    {
+      "name": "ITK-SNAP",
+      "description": "ITK-SNAP is a software application used to segment structures in 3D medical images.",
+      "url": "http://www.itksnap.org/pmwiki/pmwiki.php",
+      "tags": ["data exploration", "segmentation", "interactive"]
+    },
+    {
+      "name": "DTI-TK",
+      "description": "DTI-TK is a spatial normalization and atlas construction toolkit optimized for examining white matter morphometry using DTI data",
+      "url": "http://dti-tk.sourceforge.net/pmwiki/pmwiki.php",
+      "tags": ["diffusion", "registration"]
+    },
+    {
+      "name": "MITK",
+      "description": "The Medical Imaging Interaction Toolkit (MITK) is a free open-source software for the development of interactive medical image processing software",
+      "url": "https://www.mitk.org/wiki/The_Medical_Imaging_Interaction_Toolkit_(MITK)",
+      "tags": ["diffusion", "registration", "segmentation", "surgical planning"]
+    },
+    {
+      "name": "LeadDBS",
+      "description": "Lead-DBS is a toolbox facilitating Deep Brain Stimulation electrode reconstructions and computer simulations based on postoperative MRI & CT imaging.",
+      "url": "https://www.lead-dbs.org/",
+      "tags": ["diffusion", "surgical planning", "structural"]
+    },
+    {
+      "name": "AFNI",
+      "description": "AFNI (Analysis of Functional NeuroImages) is a leading software suite of C, Python, R programs and shell scripts primarily developed for the analysis and display of multiple MRI modalities: anatomical, functional MRI (FMRI) and diffusion weighted (DW) data",
+      "url": "https://afni.nimh.nih.gov/",
+      "tags": ["functional", "structural", "diffusion"]
     }
   ]
 }

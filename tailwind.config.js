@@ -7,6 +7,7 @@ module.exports = {
         // Any additional colors here
         "theme-yellow": "#F3A712",
         "theme-orange": "#F0544F",
+        "theme-blue": "#007DB2",
         "theme-white": "#ECF0F1",
         "theme-dark": "#2f323a",
       },

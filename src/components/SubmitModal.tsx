@@ -3,7 +3,7 @@ import Modal from "react-modal"
 import SubmitForm from "./SubmitForm"
 import { submitForm } from "~/helpers/submitForm"
 import { Form, SuccessError } from "~/model/form"
-import CloseIcon from "./icons/CloseIcon"
+import CloseIcon from "./CloseIcon"
 
 interface Props {
   open: boolean
@@ -141,13 +141,13 @@ const SubmitModal: React.FC<Props> = ({ open, onClose }) => {
     >
       <div>
         <div className="flex flex-row items-center justify-between">
-          <h1 className="text-2xl font-bold">Submit a Devtool</h1>
+          <h1 className="text-2xl font-bold">Submit a new resource</h1>
           <button onClick={handleCloseModal}>
             <CloseIcon />
           </button>
         </div>
         <p className="text-lg my-3">
-          Submit a devtool to be featured on our list. You can submit a tool by
+          Submit a resource to be featured here. You can submit it by
           filling out the form below or by{" "}
           <a
             className="text-blue-600 hover:underline"

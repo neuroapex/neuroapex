@@ -29,15 +29,14 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
 
   return (
     <Layout>
-
       <div className="max-w-7xl mx-auto">
         <header className="text-center">
           <div className="pr-4 pb-12 pt-4 flex flex-row justify-end"></div>
           <h1 className="text-5xl font-bold pb-5 text-theme-blue">
-            NeuroAPEX: Software Packages
+            NeuroAPEX: the Software Packages
           </h1>
           <p className="text-lg text-theme-white font-bold">
-            a repository of individual software tools for neuroimage analysis 
+            a knowledge base of individual software tools for neuroimage analysis 
           </p>
           {!hideControls && (
             <>
