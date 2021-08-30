@@ -33,9 +33,8 @@ const Card: React.FC<Props> = ({ title, url, description, tags }) => {
           return (
             <button
               onClick={() => setActiveTag({ name: item, occurrence: 1 })}
-              className={buttonClasses}
-            >
-              <p className="text-xs text-theme-dark font-bold">{item}</p>
+              className={buttonClasses}>
+              <p className="text-xs text-theme-light font-bold">{item}</p>
             </button>
           )
         })}
