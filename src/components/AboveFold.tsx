@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import { SearchContext } from "~/context/SearchContext"
 import { NeuroAPEX } from "./icons/NeuroAPEX"
 import TagCloud from "./TagCloud"
+import MyImage from "../../static/logo.png"
 
 interface Props {
   openModal: () => void
@@ -23,20 +24,15 @@ export const AboveFold: React.FC<Props> = ({
   return (
     <header className="text-center">
       <div className="pr-4 pb-12 pt-4 flex flex-row justify-end">
-        <button
-          onClick={openModal}
-          className="py-2 px-4 mt-2 md:mt-0 rounded shadow bg-theme-yellow text-theme-dark font-bold text-sm md:text-md lg:text-lg"
-        >
-          Submit a Devtool
+        <button onClick={openModal}
+          className="py-2 px-4 mt-2 md:mt-0 rounded shadow bg-theme-yellow text-theme-dark font-bold text-sm md:text-md lg:text-lg">
+          Submit a new entry
         </button>
       </div>
       <div className="mx-auto w-72">
-        <NeuroAPEX />
+      <img src={MyImage} alt="NeuroApex Logo" />
       </div>
-      <h1
-        style={{ fontFamily: "Lobster" }}
-        className="text-5xl font-bold pb-5 text-theme-yellow"
-      >
+      <h1 className="text-5xl font-bold pb-5 text-theme-yellow">
         NeuroAPEX
       </h1>
       <p className="text-lg text-theme-white font-bold">

@@ -1,5 +1,14 @@
-import React from "react"
+
+import React, { useState } from "react"
 import { Helmet } from "react-helmet"
+import {Link} from 'gatsby'
+import MyImage from "../../static/logo.png"
+
+import SubmitModal from "./SubmitModal"
+
+interface Props {
+  hideControls?: boolean
+}
 
 const siteName = "NeuroAPEX"
 const siteUrl = "https://neuroapex.io"
@@ -8,28 +17,75 @@ const siteLocale = "en_US"
 const siteDescription =
   "NeuroAPEX: a neuroimaging analytics platform for expert guidance"
 
-export const Head: React.FC = () => {
+
+export const Head: React.FC<Props> = ({ children, hideControls = false }) => {
+  const [modalOpen, setModalOpen] = useState<boolean>(false)
+
+  const linkStyle = `
+  hover:opacity-70
+  text-sm
+  sm:text-lg
+  `
+  const logoStyle=`
+  text-white 
+  sm:text-base
+  text-sm
+  `
+
+
   return (
-    <Helmet>
-      <title>NeuroAPEX</title>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <meta name="description" content={siteDescription} />
+    <>
+      <Helmet>
+        <title>NeuroAPEX</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content={siteDescription} />
 
-      {/* Open Graph */}
-      <meta property="og:title" content={siteName} />
-      <meta property="og:url" content={siteUrl} />
-      <meta property="og:image" content={siteImage} />
-      <meta property="og:type" content="website" />
-      <meta property="og:description" content={siteDescription} />
-      <meta property="og:locale" content={siteLocale} />
+        {/* Open Graph */}
+        <meta property="og:title" content={siteName} />
+        <meta property="og:url" content={siteUrl} />
+        <meta property="og:image" content={siteImage} />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content={siteDescription} />
+        <meta property="og:locale" content={siteLocale} />
 
-      {/* Twitter */}
-      <meta property="twitter:card" content="website" />
-      <meta property="twitter:creator" content="@_glvn" />
-      <meta property="twitter:description" content={siteDescription} />
-      <meta property="twitter:title" content={siteName} />
-      <meta property="twitter:image" content={siteImage} />
-      <meta property="twitter:image:alt" content={siteName} />
-    </Helmet>
+        {/* Twitter */}
+        <meta property="twitter:card" content="website" />
+        <meta property="twitter:creator" content="@_glvn" />
+        <meta property="twitter:description" content={siteDescription} />
+        <meta property="twitter:title" content={siteName} />
+        <meta property="twitter:image" content={siteImage} />
+        <meta property="twitter:image:alt" content={siteName} />
+      </Helmet>
+      <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+        <div class="flex items-center flex-shrink-0 text-white mr-6">
+          <img src={MyImage} alt="NeuroApex Logo" width="50px"/>
+          <span class="font-semibold text-xl tracking-tight">NeuroAPEX</span>
+        </div>
+        <div class="block lg:hidden">
+          <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+          </button>
+        </div>
+        <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+          <div class="text-sm lg:flex-grow">
+            <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+              Software Packages
+            </a>
+            <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+              Analysis Workflows
+            </a>
+            <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+              Publications
+            </a>
+            <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+              Tutorials
+            </a>
+          </div>
+          <div>
+            <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Submit a new resource</a>
+          </div>
+        </div>
+      </nav>
+    </>
   )
 }
