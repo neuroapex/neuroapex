@@ -2,24 +2,12 @@ import React, { useState } from "react"
 import Footer from "./Footer"
 import { Head } from "./Head"
 
-import { AboveFold } from "./AboveFold"
+interface Props {}
 
-import SubmitModal from "./SubmitModal"
-
-interface Props {
-  hideControls?: boolean
-}
-
-export const Layout: React.FC<Props> = ({ children, hideControls = false }) => {
-  const [modalOpen, setModalOpen] = useState<boolean>(false)
-
+export const Layout: React.FC<Props> = ({ children }) => {
   return (<>
     <Head />
-    <div className="max-w-7xl mx-auto">
-      <AboveFold hideControls={hideControls} openModal={() => setModalOpen(true)} />
-      <main className="mx-auto">{children}</main>
-      <SubmitModal open={modalOpen} onClose={() => setModalOpen(false)} />
-    </div>
+    {children}
     <Footer />
   </>)
 }

@@ -58,8 +58,12 @@ export const Head: React.FC<Props> = ({ children, hideControls = false }) => {
       </Helmet>
       <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
         <div class="flex items-center flex-shrink-0 text-white mr-6">
-          <img src={MyImage} alt="NeuroApex Logo" width="50px"/>
-          <span class="font-semibold text-xl tracking-tight">NeuroAPEX</span>
+          <Link to="/">
+            <img src={MyImage} alt="NeuroApex Logo" width="50px"/>
+          </Link>
+          <Link to="/">
+            <span class="font-semibold text-xl tracking-tight">NeuroAPEX</span>
+          </Link>
         </div>
         <div class="block lg:hidden">
           <button class="flex items-center px-3 py-2 border rounded text-white border-teal-400 hover:text-white hover:border-white">
@@ -67,21 +71,19 @@ export const Head: React.FC<Props> = ({ children, hideControls = false }) => {
           </button>
         </div>
         <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-          <div class="text-sm lg:flex-grow">
-            <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4">
-              Software Packages
-            </a>
-            <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4">
-              Analysis Workflows
-            </a>
-            <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4">
-              Publications
-            </a>
-            <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200">
-              Tutorials
-            </a>
+          <div class="lg:flex-grow">
+            <div class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4">
+            <Link to="/software">Software Packages</Link></div>
+            <div class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4">
+            <Link to="/software">Analytic Workflows</Link></div>
+            <div class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4">
+            <Link to="/software">Publications</Link></div>
+            <div class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4">
+            <Link to="/software">Training Material</Link></div>
           </div>
           <div>
+            <div class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200">
+            <Link to="/">About</Link></div>
             <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Submit a new resource</a>
           </div>
         </div>

@@ -29,7 +29,7 @@ const TagCloud: React.FC<Props> = ({
           "rounded",
           "shadow",
           {
-            "bg-theme-yellow": tagActive,
+            "bg-theme-blue": tagActive,
             "bg-theme-white": !tagActive,
           }
         )
@@ -42,7 +42,7 @@ const TagCloud: React.FC<Props> = ({
           >
             <span className="flex flex-row items-start">
               <span className="text-sm">{tag.name}</span>
-              <span className="bg-theme-yellow text-theme-dark mx-2 px-1 shadow rounded text-sm">
+              <span className="bg-theme-blue text-theme-dark mx-2 px-1 shadow rounded text-sm">
                 {tag.occurrence}
               </span>
             </span>
