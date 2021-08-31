@@ -3,7 +3,7 @@ import { useState } from "react"
 import { Layout } from "~/components/Layout"
 import Card from "~/components/Card"
 import { Tool } from "~/model/tool"
-import { SearchContext } from "~/context/SearchContext"
+import { SearchContext } from "~/context/ToolsContext"
 import SubmitModal from "../components/SubmitModal"
 import TagCloud from "../components/TagCloud"
 
@@ -11,7 +11,7 @@ interface Props {
   hideControls?: boolean
 }
 
-export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) => {
+export const ToolsPage: React.FC<Props> = ({ children, hideControls = false }) => {
 
   const [modalOpen, setModalOpen] = useState<boolean>(false)
   const { tools } = useContext(SearchContext)
@@ -33,7 +33,7 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
         <header className="text-center">
           <div className="pr-4 pb-12 pt-4 flex flex-row justify-end"></div>
           <h1 className="text-5xl font-bold pb-5 text-theme-blue">
-            NeuroAPEX: the Software Packages
+            NeuroAPEX: the Tools
           </h1>
           <p className="text-lg text-theme-white font-bold">
             a knowledge base of individual software tools for neuroimage analysis 
@@ -88,4 +88,4 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
   )
 }
 
-export default IndexPage
+export default ToolsPage 

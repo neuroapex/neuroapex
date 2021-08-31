@@ -25,6 +25,12 @@
       "tags": ["workflow", "development", "computing"]
     },
     {
+      "name": "ANTs",
+      "description": "Advanced Normalization Tools (ANTs) is popularly considered a state-of-the-art medical image registration and segmentation toolkit.",
+      "url": "https://stnava.github.io/ANTs/",
+      "tags": ["registration", "correction", "segmentation"]
+    },
+    {
       "name": "SPM",
       "description": "Statistical Parametric Mapping refers to the construction and assessment of spatially extended statistical processes used to test hypotheses about functional imaging data. ",
       "url": "https://www.fil.ion.ucl.ac.uk/spm/",
@@ -59,6 +65,18 @@
       "description": "The Medical Imaging Interaction Toolkit (MITK) is a free open-source software for the development of interactive medical image processing software",
       "url": "https://www.mitk.org/wiki/The_Medical_Imaging_Interaction_Toolkit_(MITK)",
       "tags": ["diffusion", "registration", "segmentation", "surgical planning"]
+    },
+    {
+      "name": "dcm2niix",
+      "description": "dcm2niix is designed to convert neuroimaging data from the DICOM format to the NIfTI format.",
+      "url": "https://github.com/rordenlab/dcm2niix",
+      "tags": ["file format", "conversion"]
+    },
+    {
+      "name": "MRtrix3",
+      "description": "MRtrix3 provides a set of tools to perform various types of diffusion MRI analyses, from various forms of tractography through to next-generation group-level analyses",
+      "url": "https://www.mrtrix.org/",
+      "tags": ["diffusion", "visualization"]
     },
     {
       "name": "LeadDBS",

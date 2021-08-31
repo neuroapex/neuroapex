@@ -73,13 +73,13 @@ export const Head: React.FC<Props> = ({ children, hideControls = false }) => {
         <div class="w-full font-bold block flex-grow lg:flex lg:items-center lg:w-auto">
           <div class="lg:flex-grow">
             <div class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4">
-            <Link to="/software">Software</Link></div>
+            <Link to="/tools">Tools</Link></div>
             <div class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4">
-            <Link to="/software">Datasets</Link></div>
+            <Link to="/tools">Datasets</Link></div>
             <div class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4">
-            <Link to="/software">Publications</Link></div>
+            <Link to="/tools">Publications</Link></div>
             <div class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4">
-            <Link to="/software">Tutorials</Link></div>
+            <Link to="/tools">Tutorials</Link></div>
             <div class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200">
             <Link to="/">About</Link></div>
           </div>
