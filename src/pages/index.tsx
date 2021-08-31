@@ -20,9 +20,7 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
   return (
     <Layout>
         <div className="pr-4 pb-12 pt-4 flex flex-row justify-center">
-          <div className="mx-auto w-72">
             <img src={logo} alt="NeuroApex Logo" />
-          </div>
         </div>
         <div className="pr-4 pb-12 pt-4 flex flex-row justify-center">
           <h1 className="text-5xl font-bold pb-5 text-theme-blue">

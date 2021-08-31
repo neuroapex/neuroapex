@@ -21,7 +21,7 @@ const Card: React.FC<Props> = ({ title, url, description, tags }) => {
   }
 
   return (
-    <div className="border shadow rounded-lg h-72 sm:w-72 p-4 m-2 overflow-hidden">
+    <div className="border shadow rounded-lg h-128 sm:w-72 p-4 m-2 overflow-hidden">
       <h1 className="text-lg font-bold text-theme-white">{title}</h1>
       <a href={url} className="text-sm text-theme-blue hover:underline w-72">
         {url}
