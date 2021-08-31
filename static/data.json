@@ -19,6 +19,12 @@
       "tags": ["multimodal", "structural", "diffusion", "visualization", "data exploration"]
     },
     {
+      "name": "LONI Pipeline",
+      "description": "The LONI Pipeline is a free workflow application for quickly create general purpose workflows using many tools available in neuroimaging, genomics, bioinformatics, etc.",
+      "url": "https://pipeline.loni.usc.edu/",
+      "tags": ["workflow", "development", "computing"]
+    },
+    {
       "name": "SPM",
       "description": "Statistical Parametric Mapping refers to the construction and assessment of spatially extended statistical processes used to test hypotheses about functional imaging data. ",
       "url": "https://www.fil.ion.ucl.ac.uk/spm/",

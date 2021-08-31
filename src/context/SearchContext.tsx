@@ -96,9 +96,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   const { tools } = query.staticJson
 
   const [filteredTools, _setFilteredTools] = useState<Tool[]>([])
-
   const [allTags, _setAllTags] = useState<Tag[]>([])
-
   const [searchInput, _setSearchInput] = useState<string>("")
   const [activeTag, _setActiveTag] = useState<Tag | null>(null)
 
