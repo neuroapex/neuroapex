@@ -4,8 +4,6 @@ import { Helmet } from "react-helmet"
 import {Link} from 'gatsby'
 import MyImage from "../../static/logo.png"
 
-import SubmitModal from "./SubmitModal"
-
 interface Props {
   hideControls?: boolean
 }

@@ -14,7 +14,7 @@
     },
     {
       "name": "QIT",
-      "description": "The Quantitative Imaging Toolkit (QIT) is a software package of computational tools for the modeling, analysis, and visualization of scientific imaging data.",
+      "description": "The Quantitative Imaging Toolkit (QIT) is software for modeling, analysis, and visualization of scientific imaging data.",
       "url": "https://cabeen.io/qitwiki/",
       "tags": ["multimodal", "structural", "diffusion", "visualization", "data exploration"]
     },
@@ -32,7 +32,7 @@
     },
     {
       "name": "DIPY",
-      "description": "DIPY is the paragon 3D/4D+ imaging library in Python. Contains generic methods for spatial normalization, signal processing, machine learning, statistical analysis and visualization of medical images. Additionally, it contains specialized methods for computational anatomy including diffusion, perfusion and structural imaging.",
+      "description": "DIPY is the paragon 3D/4D+ imaging library in Python. Contains generic methods for spatial normalization, signal processing, machine learning, statistical analysis and visualization of medical images.",
       "url": "https://dipy.org/",
       "tags": ["development", "diffusion", "visualization"]
     },
