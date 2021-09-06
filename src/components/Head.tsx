@@ -19,17 +19,8 @@ const siteDescription =
 export const Head: React.FC<Props> = ({ children, hideControls = false }) => {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
 
-  const linkStyle = `
-  hover:opacity-70
-  text-sm
-  sm:text-lg
-  `
-  const logoStyle=`
-  text-white 
-  sm:text-base
-  text-sm
-  `
-
+  const linkStyle = `hover:opacity-70 text-sm sm:text-lg`
+  const logoStyle=`text-white sm:text-base text-sm`
 
   return (
     <>

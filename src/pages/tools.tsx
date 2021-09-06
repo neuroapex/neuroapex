@@ -2,16 +2,12 @@ import React, { useContext } from "react"
 import { useState } from "react"
 import { Layout } from "~/components/Layout"
 import Card from "~/components/Card"
-import { Tool } from "~/model/tool"
 import { SearchContext } from "~/context/SearchContext"
 import SubmitModal from "../components/SubmitModal"
 import TagCloud from "../components/TagCloud"
+import { Tool } from "~/model/tool"
 
-interface Props {
-  hideControls?: boolean
-}
-
-export const ToolsPage: React.FC<Props> = ({ children, hideControls = false }) => {
+export const ToolsPage = ({ hideControls = false }) => {
 
   const [modalOpen, setModalOpen] = useState<boolean>(false)
   const { tools } = useContext(SearchContext)

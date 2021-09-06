@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `neuroapex`,
     description: `neuroapex: neuroimaging analytics platform for expert guidance`,
-    author: `@sgolovine`,
+    author: `@cabeen`,
   },
   plugins: [
     `gatsby-transformer-json`,
