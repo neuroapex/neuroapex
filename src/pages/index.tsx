@@ -19,59 +19,72 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
 
   return (
     <Layout>
-     <div className="flex flex-col justify-center mt-auto">
-          <div className="p-4 justify-center">
-              <img width="250px" src={logo} alt="NeuroApex Logo" />
-          </div>
-          <h1 className="text-5xl font-bold pb-5 text-theme-blue">
-            Welcome to NeuroAPEX
-          </h1>
-          <p className="text-2xl text-theme-white font-bold">
+        <div className="pr-4 pb-2 pt-2 flex flex-row justify-center">
+            <img src={logo} alt="NeuroApex Logo" />
+        </div>
+        <div className="pr-4 pb-2 pt-2 flex flex-row justify-center text-5xl font-bold pb-5 text-theme-blue">
+            NeuroAPEX
+        </div>
+        <div className="pr-4 pb-2 pt-2 flex flex-row justify-center text-lg text-theme-white font-bold">
             a neuroimaging analytics platform for expert guidance
-          </p>
-      </div>
+        </div>
 
       <div className="flex flex-col p-4 container mx-auto">
-        <div className="p-4">
-          <h1 className="text-5xl font-bold pb-5 text-theme-blue">
+        <div className="p-8">
+          <h1 className="text-4xl pb-4 font-bold text-theme-white">
             What is NeuroAPEX? 
           </h1>
-          <p className="text-lg text-theme-white font-bold">
-            a neuroimaging analytics platform for expert guidance
-          </p>
+          <div className="text-lg text-theme-white">
+            NeuroAPEX is an web resource for helping neuroscientists better
+            understand and assess how they can analyze neuroimaging datasets.
+            There is a great variety of publicly available tools for image
+            analytics, and while they each have their unique and important uses,
+            these overwhelming options pose a challenge to neuroscientists who
+            have imaging data but are unsure how to use these tools in practice.
+            NeuroAPEX was created to help bridge the gap between that the
+            developers of computational imaging methods and the neuroscientists
+            seeking to use them.
+          </div>
         </div>
 
-        <div className="p-4">
-          <h1 className="text-5xl font-bold pb-5 text-theme-blue">
+        <div className="p-8 ">
+          <h1 className="text-4xl font-bold pb-4 text-theme-white">
             Who develops NeuroAPEX? 
           </h1>
-          <p className="text-lg text-theme-white font-bold">
-            <a className="text-theme-blue hover:underline"
-              href="https://neuroapex.io">&nbsp;
-              neuroapex.io </a>
-            is developed by &nbsp;
-            <a className="text-theme-blue hover:underline"
-              href="https://cabeen.io">Ryan Cabeen</a> and&nbsp;
-            <a className="text-theme-blue hover:underline"
-              href="http://gaain.org/">GAAIN</a>.
+          <p className="text-lg text-theme-white">
+              NeuroAPEX is developed by <a className="text-theme-blue
+              hover:underline" href="https://cabeen.io"> Ryan P. Cabeen </a>
+              and <a className="text-theme-blue hover:underline"
+              href="http://gaain.org/">The Global Alzheimer's Association
+              Interactive Network (GAAIN)</a> with support from the <a
+              className="text-theme-blue hover:underline"
+              href="https://www.alzheimersdata.org/"> Alzheimer's Disease Data
+              Initiative (ADDI)</a>  
           </p>
         </div>
 
-        <div className="p-4">
-          <h1 className="text-5xl font-bold pb-5 text-theme-blue">
+        <div className="p-8">
+          <h1 className="text-4xl font-bold pb-4 text-theme-white">
             How can I contribute? 
           </h1>
-          <p className="text-lg text-theme-white font-bold">
-            a neuroimaging analytics platform for expert guidance
+          <p className="text-lg text-theme-white">
+            You can submit your own resources via the <span
+            className="text-theme-blue text-bold">Submit a new resource </span>
+            button at the bottom of the page for each type of resource.  You can also
+            submit a pull request on the <a className="text-theme-blue
+            hover:underline" href="https://github.com/cabeen/neuroapex"> 
+            NeuroAPEX GitHub repository</a>.
           </p>
         </div>
 
-        <div className="p-4">
-          <h1 className="text-5xl font-bold pb-5 text-theme-blue">
+        <div className="p-8">
+          <h1 className="text-4xl font-bold pb-4 text-theme-white">
             How can I use it? 
           </h1>
-          <p className="text-lg text-theme-white font-bold">
-            a neuroimaging analytics platform for expert guidance
+          <p className="text-lg text-theme-white">
+            In this section, we will have a statement about any limitations on
+            how it can be used and that this is a research tool that is not for
+            clinical decision making. 
           </p>
         </div>
       </div>
