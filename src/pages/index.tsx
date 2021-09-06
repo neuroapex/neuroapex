@@ -45,6 +45,19 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
             developers of computational imaging methods and the neuroscientists
             seeking to use them.
           </div>
+          <br></br>
+          <div className="text-lg text-theme-white">
+            NeuroAPEX collects, curates, links a variety of neuroimage analysis
+            resources, including software packages, reference datasets,
+            publications, and tutorials.  Taken together, this is meant to
+            capture the collective practical expertise of the community,
+            something which more often shared informally through channels such
+            as lab meetings, collaborations occuring from chance encounters,
+            water cooler conversation, etc.  We aim for NeuroAPEX to provide an
+            open and accessible route to reach this expertise, with flexibily
+            for growing along with the field and with additions from the
+            community itself.
+          </div>
         </div>
 
         <div className="p-8 ">
@@ -52,15 +65,20 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
             Who develops NeuroAPEX? 
           </h1>
           <p className="text-lg text-theme-white">
-              NeuroAPEX is developed by <a className="text-theme-blue
+              NeuroAPEX was created and initially developed by <a className="text-theme-blue
               hover:underline" href="https://cabeen.io"> Ryan P. Cabeen </a>
               and <a className="text-theme-blue hover:underline"
               href="http://gaain.org/">The Global Alzheimer's Association
               Interactive Network (GAAIN)</a> with support from the <a
               className="text-theme-blue hover:underline"
               href="https://www.alzheimersdata.org/"> Alzheimer's Disease Data
-              Initiative (ADDI)</a>  
+              Initiative (ADDI)</a>. Ultimately though, this is meant to be an
+              open resource for the broader neuroimaging community.  Reseachers
+              who develop new tools or other resources can share them here, and
+              neuroscientists can share their own best-practices and related
+              resources here as well.
           </p>
+
         </div>
 
         <div className="p-8">

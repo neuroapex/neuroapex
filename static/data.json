@@ -2,7 +2,7 @@
   "tools": [
     {
       "name": "Freesurfer",
-      "description": "Freesurfer is nn open source software suite for processing and analyzing (human) brain MRI images, particularly for cortical surface modeling.",
+      "description": "Freesurfer is an open source software suite for processing and analyzing (human) brain MRI images, particularly for cortical surface modeling.",
       "url": "https://surfer.nmr.mgh.harvard.edu/",
       "tags": ["structural", "cortex", "surface"]
     },
