@@ -12,12 +12,12 @@ export const DatasetsPage = ({ hideControls = false }) => {
 
   const {
     datasets,
-    tags,
-    activeTag,
-    setActiveTag,
-    clearTag,
-    searchInput,
-    setSearch,
+    tagsDatasets,
+    activeTagDatasets,
+    setActiveTagDatasets,
+    clearTagDatasets,
+    searchInputDatasets,
+    setSearchDatasets,
   } = useContext(SearchContext)
 
   return (
@@ -26,7 +26,7 @@ export const DatasetsPage = ({ hideControls = false }) => {
         <header className="text-center">
           <div className="pr-4 pb-12 pt-4 flex flex-row justify-end"></div>
           <h1 className="text-5xl font-bold pb-5 text-theme-blue">
-            NeuroAPEX: the Datasets 
+            NeuroAPEX: the Datasets
           </h1>
           <p className="text-lg text-theme-white font-bold">
             a knowledge base of data resources for neuroimage analysis 
@@ -35,16 +35,16 @@ export const DatasetsPage = ({ hideControls = false }) => {
             <>
               <div className="py-5 mx-auto">
                 <TagCloud
-                  tags={tags}
-                  activeTag={activeTag}
-                  toggleTag={setActiveTag}
-                  clearTag={clearTag}
+                  tags={tagsDatasets}
+                  activeTag={activeTagDatasets}
+                  toggleTag={setActiveTagDatasets}
+                  clearTag={clearTagDatasets}
                 />
               </div>
               <div className="px-4 md:px-12 mx-auto flex flex-col md:flex-row">
                 <input
-                  value={searchInput}
-                  onChange={e => setSearch(e.target.value)}
+                  value={searchInputDatasets}
+                  onChange={e => setSearchDatasets(e.target.value)}
                   placeholder="Search..."
                   className="border rounded shadow p-2 flex-grow mr-2 text-lg bg-theme-dark text-theme-white font-bold"
                 />
@@ -55,7 +55,7 @@ export const DatasetsPage = ({ hideControls = false }) => {
 
         <main className="mx-auto">
           <div className="justify-center flex flex-col sm:flex-row flex-nowrap sm:flex-wrap mt-12">
-            {datasets.map((dataset: Dataset, index: number) => {
+            {datasets.map((dataset: Tool, index: number) => {
               return (
                 <Card
                   key={`${dataset.name.replace(" ", "-")}-${index}`}

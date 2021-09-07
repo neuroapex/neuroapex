@@ -12,12 +12,12 @@ export const ToolsPage = ({ hideControls = false }) => {
 
   const {
     tools,
-    tags,
-    activeTag,
-    setActiveTag,
-    clearTag,
-    searchInput,
-    setSearch,
+    tagsTools,
+    activeTagTools,
+    setActiveTagTools,
+    clearTagTools,
+    searchInputTools,
+    setSearchTools,
   } = useContext(SearchContext)
 
   return (
@@ -35,16 +35,16 @@ export const ToolsPage = ({ hideControls = false }) => {
             <>
               <div className="py-5 mx-auto">
                 <TagCloud
-                  tags={tags}
-                  activeTag={activeTag}
-                  toggleTag={setActiveTag}
-                  clearTag={clearTag}
+                  tags={tagsTools}
+                  activeTag={activeTagTools}
+                  toggleTag={setActiveTagTools}
+                  clearTag={clearTagTools}
                 />
               </div>
               <div className="px-4 md:px-12 mx-auto flex flex-col md:flex-row">
                 <input
-                  value={searchInput}
-                  onChange={e => setSearch(e.target.value)}
+                  value={searchInputTools}
+                  onChange={e => setSearchTools(e.target.value)}
                   placeholder="Search..."
                   className="border rounded shadow p-2 flex-grow mr-2 text-lg bg-theme-dark text-theme-white font-bold"
                 />
