@@ -6,7 +6,7 @@ const Footer: React.FC = () => (
       <p className="text-sm font-bold text-theme-white">
         Contact us with any questions or concerns 
         <a className="text-theme-blue hover:underline"
-          href="mailto:contact@neuroapex.io"> via e-mail at neuroapex@ini.usc.edu</a>
+          href="mailto:contact@neuroapex.io"> via e-mail at contact@neuroapex.io</a>
       </p>
       <p className="text-sm font-bold text-theme-white">
         Copyright © 2021&nbsp;

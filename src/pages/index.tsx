@@ -65,11 +65,11 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
             Who develops NeuroAPEX? 
           </h1>
           <p className="text-lg text-theme-white">
-              NeuroAPEX was created and initially developed by <a className="text-theme-blue
+              NeuroAPEX was created and maintained by <a className="text-theme-blue
               hover:underline" href="https://cabeen.io"> Ryan P. Cabeen </a>
-              and <a className="text-theme-blue hover:underline"
+              along with the <a className="text-theme-blue hover:underline"
               href="http://gaain.org/">The Global Alzheimer's Association
-              Interactive Network (GAAIN)</a> with support from the <a
+              Interactive Network (GAAIN)</a> team, with support from the <a
               className="text-theme-blue hover:underline"
               href="https://www.alzheimersdata.org/"> Alzheimer's Disease Data
               Initiative (ADDI)</a>. Ultimately though, this is meant to be an
