@@ -66,7 +66,7 @@ export const Head: React.FC<Props> = ({ children, hideControls = false }) => {
             <div class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4">
             <Link to="/tools">Tools</Link></div>
             <div class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4">
-            <Link to="/tools">Datasets</Link></div>
+            <Link to="/datasets">Datasets</Link></div>
             <div class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4">
             <Link to="/tools">Publications</Link></div>
             <div class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4">

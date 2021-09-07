@@ -1,4 +1,4 @@
-export interface Tool {
+export interface Tutorial {
   name: string
   description: string
   url: string

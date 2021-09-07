@@ -1,4 +1,4 @@
-export interface Tool {
+export interface Dataset {
   name: string
   description: string
   url: string

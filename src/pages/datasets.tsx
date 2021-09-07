@@ -4,14 +4,14 @@ import { SearchContext } from "~/context/SearchContext"
 import SubmitModal from "../components/SubmitModal"
 import TagCloud from "../components/TagCloud"
 import Card from "~/components/Card"
-import { Tool } from "~/model/tool"
+import { Dataset } from "~/model/dataset"
 
-export const ToolsPage = ({ hideControls = false }) => {
+export const DatasetsPage = ({ hideControls = false }) => {
 
   const [modalOpen, setModalOpen] = useState<boolean>(false)
 
   const {
-    tools,
+    datasets,
     tags,
     activeTag,
     setActiveTag,
@@ -26,10 +26,10 @@ export const ToolsPage = ({ hideControls = false }) => {
         <header className="text-center">
           <div className="pr-4 pb-12 pt-4 flex flex-row justify-end"></div>
           <h1 className="text-5xl font-bold pb-5 text-theme-blue">
-            NeuroAPEX: the Tools
+            NeuroAPEX: the Datasets 
           </h1>
           <p className="text-lg text-theme-white font-bold">
-            a knowledge base of individual software tools for neuroimage analysis 
+            a knowledge base of data resources for neuroimage analysis 
           </p>
           {!hideControls && (
             <>
@@ -55,14 +55,14 @@ export const ToolsPage = ({ hideControls = false }) => {
 
         <main className="mx-auto">
           <div className="justify-center flex flex-col sm:flex-row flex-nowrap sm:flex-wrap mt-12">
-            {tools.map((tool: Tool, index: number) => {
+            {datasets.map((dataset: Dataset, index: number) => {
               return (
                 <Card
-                  key={`${tool.name.replace(" ", "-")}-${index}`}
-                  title={tool.name}
-                  description={tool.description}
-                  url={tool.url}
-                  tags={tool.tags}
+                  key={`${dataset.name.replace(" ", "-")}-${index}`}
+                  title={dataset.name}
+                  description={dataset.description}
+                  url={dataset.url}
+                  tags={dataset.tags}
                 />
               )
             })}
@@ -81,4 +81,4 @@ export const ToolsPage = ({ hideControls = false }) => {
   )
 }
 
-export default ToolsPage 
+export default DatasetsPage 

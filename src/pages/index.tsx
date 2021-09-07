@@ -39,11 +39,11 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
             understand and assess how they can analyze neuroimaging datasets.
             There is a great variety of publicly available tools for image
             analytics, and while they each have their unique and important uses,
-            these overwhelming options pose a challenge to neuroscientists who
-            have imaging data but are unsure how to use these tools in practice.
-            NeuroAPEX was created to help bridge the gap between that the
-            developers of computational imaging methods and the neuroscientists
-            seeking to use them.
+            these overwhelming options pose a challenge for neuroscientists who
+            have imaging data but are unsure how to best use these tools in
+            practice.  NeuroAPEX was created to help bridge this gap between 
+            the developers of computational imaging methods and the
+            neuroscientists seeking to use them.
           </div>
           <br></br>
           <div className="text-lg text-theme-white">

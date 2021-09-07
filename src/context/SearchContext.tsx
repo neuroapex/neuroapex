@@ -2,8 +2,9 @@ import { graphql, useStaticQuery } from "gatsby"
 import React, { createContext, useEffect, useState } from "react"
 import { Tag } from "~/model/tag"
 import { Tool } from "~/model/tool"
+import { Dataset } from "~/model/dataset"
 
-const _filterOnSearchTerm = (tools: Tool[], searchTerm: string): Tool[] => {
+const _filterToolsOnSearchTerm = (tools: Tool[], searchTerm: string): Tool[] => {
   const regex = new RegExp(String.raw`${searchTerm}`)
   return tools.filter(tool => {
     if (tool.name.match(regex) || tool.name.toLowerCase().match(regex)) {
@@ -20,6 +21,27 @@ const _filterOnSearchTerm = (tools: Tool[], searchTerm: string): Tool[] => {
     }
     if (tool.tags.filter(tag => tag.toLowerCase().match(regex)).length > 0) {
       return tool
+    }
+  })
+}
+
+const _filterDatasetsOnSearchTerm = (datasets: Dataset[], searchTerm: string): Dataset[] => {
+  const regex = new RegExp(String.raw`${searchTerm}`)
+  return datasets.filter(dataset => {
+    if (dataset.name.match(regex) || dataset.name.toLowerCase().match(regex)) {
+      return dataset
+    }
+    if (
+      dataset.description.match(regex) ||
+      dataset.description.toLowerCase().match(regex)
+    ) {
+      return dataset
+    }
+    if (dataset.url.match(regex)) {
+      return dataset
+    }
+    if (dataset.tags.filter(tag => tag.toLowerCase().match(regex)).length > 0) {
+      return dataset
     }
   })
 }
@@ -64,6 +86,7 @@ const _getTagsWithCounts = (data: Tool[]): Tag[] => {
 
 interface SearchContext {
   tools: Tool[]
+  datasets: Dataset[]
   tags: Tag[]
   searchInput: string
   activeTag: Tag | null
@@ -79,6 +102,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   const query = useStaticQuery<{
     staticJson: {
       tools: Tool[]
+      datasets: Dataset[]
     }
   }>(graphql`
     query {
@@ -89,14 +113,19 @@ export const SearchContextProvider: React.FC = ({ children }) => {
           url
           tags
         }
+        datasets {
+          name
+          description
+          url
+          tags
+        }
       }
     }
   `)
 
-  const { tools } = query.staticJson
-
+  const { tools, datasets } = query.staticJson
   const [filteredTools, _setFilteredTools] = useState<Tool[]>([])
-
+  const [filteredDatasets, _setFilteredDatasets] = useState<Dataset[]>([])
   const [allTags, _setAllTags] = useState<Tag[]>([])
   const [searchInput, _setSearchInput] = useState<string>("")
   const [activeTag, _setActiveTag] = useState<Tag | null>(null)
@@ -106,15 +135,21 @@ export const SearchContextProvider: React.FC = ({ children }) => {
     const tags = _getTagsWithCounts(tools)
     _setAllTags(tags)
     _setFilteredTools(tools)
+    _setFilteredDatasets(datasets)
   }, [])
 
   useEffect(() => {
     if (searchInput) {
-      const filteredTools = _filterOnSearchTerm(tools, searchInput)
+      const filteredTools = _filterToolsOnSearchTerm(tools, searchInput)
       _setFilteredTools(filteredTools)
+
+      const filteredDatasets = _filterDatasetsOnSearchTerm(datasets, searchInput)
+      _setFilteredDatasets(filteredDatasets)
+
       _setActiveTag(null)
     } else {
       _setFilteredTools(tools)
+      _setFilteredDatasets(datasets)
     }
   }, [searchInput])
 
@@ -124,8 +159,14 @@ export const SearchContextProvider: React.FC = ({ children }) => {
         tool.tags.includes(activeTag.name)
       )
       _setFilteredTools(filteredTools)
+
+      const filteredDatasets = datasets.filter(dataset =>
+        dataset.tags.includes(activeTag.name)
+      )
+      _setFilteredDatasets(filteredDatasets)
     } else {
       _setFilteredTools(tools)
+      _setFilteredDatasets(datasets)
     }
   }, [activeTag])
 
@@ -139,6 +180,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
 
   const value: SearchContext = {
     tools: filteredTools,
+    datasets: filteredDatasets,
     tags: allTags,
     searchInput,
     activeTag,
