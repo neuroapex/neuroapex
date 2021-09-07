@@ -36,14 +36,15 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
           </h1>
           <div className="text-lg text-theme-white">
             NeuroAPEX is an web resource for helping neuroscientists better
-            understand and assess how they can analyze neuroimaging datasets.
-            There is a great variety of publicly available tools for image
-            analytics, and while they each have their unique and important uses,
-            these overwhelming options pose a challenge for neuroscientists who
-            have imaging data but are unsure how to best use these tools in
-            practice.  NeuroAPEX was created to help bridge this gap between 
-            the developers of computational imaging methods and the
-            neuroscientists seeking to use them.
+            understand and assess how they can analyze their neuroimaging
+            data to answer their own scientific questions.  There is a great
+            variety of publicly available tools for image analytics, and while
+            they each have their unique and important uses, these overwhelming
+            options pose a challenge for neuroscientists who have imaging data
+            but are unsure how to best use these tools in practice.  NeuroAPEX
+            was created to help bridge this gap between the developers of
+            computational imaging methods and the neuroscientists seeking to use
+            them.
           </div>
           <br></br>
           <div className="text-lg text-theme-white">
@@ -56,7 +57,8 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
             water cooler conversation, etc.  We aim for NeuroAPEX to provide an
             open and accessible route to reach this expertise, with flexibily
             for growing along with the field and with additions from the
-            community itself.
+            community itself.  This is also a venue for analytics researchers to
+            share their resources and connect to a broader community of users.
           </div>
         </div>
 

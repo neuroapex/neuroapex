@@ -29,7 +29,7 @@ export const TutorialsPage = ({ hideControls = false }) => {
             NeuroAPEX: the Tutorials
           </h1>
           <p className="text-lg text-theme-white font-bold">
-            a knowledge base of individual software tutorials for neuroimage analysis 
+            a knowledge base of tutorials for neuroimage analysis 
           </p>
           {!hideControls && (
             <>

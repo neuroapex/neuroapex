@@ -29,7 +29,7 @@ export const DatasetsPage = ({ hideControls = false }) => {
             NeuroAPEX: the Datasets
           </h1>
           <p className="text-lg text-theme-white font-bold">
-            a knowledge base of reference datasets for neuroimage analysis 
+            a knowledge base of reference, normative, and disease datasets for neuroimage analysis 
           </p>
           {!hideControls && (
             <>
