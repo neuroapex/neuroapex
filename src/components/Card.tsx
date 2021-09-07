@@ -1,16 +1,17 @@
 import classNames from "classnames"
 import React, { useContext } from "react"
 import { SearchContext } from "~/context/SearchContext"
+import { Tag } from "../model/tag"
 
 interface Props {
   title: string
   url: string
   description: string
   tags: string[]
+  activeTag: Tag | null;
 }
 
-const Card: React.FC<Props> = ({ title, url, description, tags }) => {
-  const { activeTag, setActiveTag } = useContext(SearchContext)
+const Card: React.FC<Props> = ({ title, url, description, tags , activeTag}) => {
 
   function getTagClassnames(item: string) {
     const active = item === activeTag?.name
@@ -32,7 +33,7 @@ const Card: React.FC<Props> = ({ title, url, description, tags }) => {
           const buttonClasses = getTagClassnames(item)
           return (
             <button
-              onClick={() => setActiveTag({ name: item, occurrence: 1 })}
+              onClick={() => {}}
               className={buttonClasses}>
               <p className="text-xs text-theme-light font-bold">{item}</p>
             </button>

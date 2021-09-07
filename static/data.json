@@ -96,13 +96,41 @@
       "name": "LeadDBS MNI Atlases",
       "description": "A page that describes the various MNI atlases used by LeadDBS ",
       "url": "https://www.lead-dbs.org/about-the-mni-spaces/",
-      "tags": ["atlas", "deep brain stimulation"]
+      "tags": ["deep brain stimulation"]
     },
     {
       "name": "BigBrain LORIS Database",
       "description": "The BigBrain project is creating the next generation of highly detailed human brain models by building on the BigBrain - the first openly accessible, microscopic resolution 3D model of the human brain.",
       "url": "https://bigbrain.loris.ca/main.php?test_name=bigbrain",
-      "tags": ["atlas", "deep brain stimulation"]
+      "tags": ["atlas", "microscopic"]
+    }
+  ],
+  "papers": [
+    {
+      "name": "Example Paper",
+      "description": "Example description",
+      "url": "https://example.com",
+      "tags": ["paper"]
+    },
+    {
+      "name": "Example Paper 2",
+      "description": "Example description",
+      "url": "https://example.com",
+      "tags": ["another"]
+    }
+  ],
+  "tutorials": [
+    {
+      "name": "Example Tutorial",
+      "description": "Example description",
+      "url": "https://example.com",
+      "tags": ["tutorial"]
+    },
+    {
+      "name": "Example Tutorial 2",
+      "description": "Example description",
+      "url": "https://example.com",
+      "tags": ["another"]
     }
   ]
 }

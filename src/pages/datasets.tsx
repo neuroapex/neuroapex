@@ -29,7 +29,7 @@ export const DatasetsPage = ({ hideControls = false }) => {
             NeuroAPEX: the Datasets
           </h1>
           <p className="text-lg text-theme-white font-bold">
-            a knowledge base of data resources for neuroimage analysis 
+            a knowledge base of reference datasets for neuroimage analysis 
           </p>
           {!hideControls && (
             <>
@@ -55,7 +55,7 @@ export const DatasetsPage = ({ hideControls = false }) => {
 
         <main className="mx-auto">
           <div className="justify-center flex flex-col sm:flex-row flex-nowrap sm:flex-wrap mt-12">
-            {datasets.map((dataset: Tool, index: number) => {
+            {datasets.map((dataset: Dataset, index: number) => {
               return (
                 <Card
                   key={`${dataset.name.replace(" ", "-")}-${index}`}
@@ -63,6 +63,7 @@ export const DatasetsPage = ({ hideControls = false }) => {
                   description={dataset.description}
                   url={dataset.url}
                   tags={dataset.tags}
+                  activeTag={activeTagDatasets}
                 />
               )
             })}
