@@ -107,7 +107,7 @@
   ],
   "papers": [
     {
-      "name": "Example Paper",
+      "name": "Example Paper 1",
       "description": "Example description",
       "url": "https://example.com",
       "tags": ["paper"]
@@ -121,7 +121,7 @@
   ],
   "tutorials": [
     {
-      "name": "Example Tutorial",
+      "name": "Example Tutorial 1",
       "description": "Example description",
       "url": "https://example.com",
       "tags": ["tutorial"]

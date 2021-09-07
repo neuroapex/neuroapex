@@ -442,6 +442,12 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   const [activeTagPapers, _setActiveTagPapers] = useState<Tag | null>(null)
 
   useEffect(() => {
+    const tags = _getTagsWithCountsPapers(papers)
+    _setAllTagsPapers(tags)
+    _setFilteredPapers(papers)
+  }, [])
+
+  useEffect(() => {
     if (searchInputPapers) {
       const filteredPapers = _filterOnSearchTermPapers(papers, searchInputPapers)
       _setFilteredPapers(filteredPapers)
@@ -453,14 +459,20 @@ export const SearchContextProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     if (activeTagPapers) {
-      const filteredPapers = papers.filter(tutorial =>
-        tutorial.tags.includes(activeTagPapers.name)
+      const filteredPapers = papers.filter(paper =>
+        paper.tags.includes(activeTagPapers.name)
       )
       _setFilteredPapers(filteredPapers)
     } else {
       _setFilteredPapers(papers)
     }
   }, [activeTagPapers])
+
+  useEffect(() => {
+    const tags = _getTagsWithCountsPapers(papers)
+    _setAllTagsPapers(tags)
+    _setFilteredPapers(papers)
+  }, [])
 
   const setSearchPapers = (newValue: string) => _setSearchInputPapers(newValue)
   const setActiveTagPapers = (newTag: Tag) => _setActiveTagPapers(newTag)
@@ -475,6 +487,12 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   const [allTagsTutorials, _setAllTagsTutorials] = useState<Tag[]>([])
   const [searchInputTutorials, _setSearchInputTutorials] = useState<string>("")
   const [activeTagTutorials, _setActiveTagTutorials] = useState<Tag | null>(null)
+
+  useEffect(() => {
+    const tags = _getTagsWithCountsTutorials(tutorials)
+    _setAllTagsTutorials(tags)
+    _setFilteredTutorials(tutorials)
+  }, [])
 
   useEffect(() => {
     if (searchInputTutorials) {
@@ -496,6 +514,12 @@ export const SearchContextProvider: React.FC = ({ children }) => {
       _setFilteredTutorials(tutorials)
     }
   }, [activeTagTutorials])
+
+  useEffect(() => {
+    const tags = _getTagsWithCountsTutorials(tutorials)
+    _setAllTagsTutorials(tags)
+    _setFilteredTutorials(tutorials)
+  }, [])
 
   const setSearchTutorials = (newValue: string) => _setSearchInputTutorials(newValue)
   const setActiveTagTutorials = (newTag: Tag) => _setActiveTagTutorials(newTag)
