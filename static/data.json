@@ -85,6 +85,12 @@
       "tags": ["diffusion", "surgical planning", "structural"]
     },
     {
+      "name": "micaopen",
+      "description": "Open Software from the MICA lab (http:/mica-mni.github.io), other useful tools, and supplementary data that accompanies some of our recent publications.",
+      "url": "https://github.com/MICA-MNI/micaopen/",
+      "tags": ["microscopy", "surface", "structural"]
+    },
+    {
       "name": "AFNI",
       "description": "AFNI (Analysis of Functional NeuroImages) is a leading software suite of C, Python, R programs and shell scripts primarily developed for the analysis and display of multiple MRI modalities: anatomical, functional MRI (FMRI) and diffusion weighted (DW) data",
       "url": "https://afni.nimh.nih.gov/",
@@ -175,6 +181,12 @@
 			"description": "The Allen Institute for Brain Science has generated multiple reference atlases, to use with our online datasets or as stand-alone resources.  These anatomical reference atlases illustrate the adult mouse brain in coronal and sagittal planes of section, as well as the adult human brain, using modified Brodmann or gyral annotation.",
       "url": "https://atlas.brain-map.org/",
       "tags": ["atlas", "sectional", "microscopy", "rodent"]
+    },
+    {
+      "name": "TemplateFlow",
+      "description": "Group inference and reporting of neuroimaging studies require that individual's features are spatially aligned into a common frame where their location can be called standard . emplateFlow is a modular, version-controlled resource that allows researchers to use templates off-the-shelf and share new ones.",
+      "url": "https://www.templateflow.org/",
+      "tags": ["atlas", "microscopy", "rodent", "neurodevelopment"]
     },
     {
       "name": "IIT Atlas",
