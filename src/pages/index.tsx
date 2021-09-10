@@ -64,6 +64,48 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
 
         <div className="p-8 ">
           <h1 className="text-4xl font-bold pb-4 text-theme-white">
+            Who can use NeuroAPEX? 
+          </h1>
+          <p className="text-lg text-theme-white">
+              NeuroAPEX is freely available and meant to be useful for anyone
+              involved in neuroimaging research who wants to know more about
+              image analytics.  To give a few example, this might include:
+          </p>
+          <ul className="list-disc mr-32 pl-32 pt-4 text-lg text-theme-white">
+            <li className="p-2">
+              <span className="font-bold">Clinical researchers</span>, who have
+              collected data from patients and are wondering how
+              to measure various brain features in relation clinical variables
+            </li>
+            <li className="p-2">
+              <span className="font-bold">Basic scientists</span>, who want to
+              come up to speed on the latest techniques, tools, and modalities
+              for studying their favorite brain anatomy, functionality, etc.
+            </li>
+            <li className="p-2">
+              <span className="font-bold">Students</span>, who are new to the
+              field and are wondering about what the most commonly used
+              approaches are and how to quickly get up and running
+            </li>
+            <li className="p-2">
+              <span className="font-bold">Methods developers</span>, who are
+              interested in understanding the state of the art how they can
+              proceed in their next project, or how they can share their work
+            </li>
+            <li className="p-2">
+              <span className="font-bold">Software developers</span>, who are
+              interested in contributing to open source projects, or
+              who are looking for new areas in need of better software solutions
+            </li>
+            <li className="p-2">
+              <span className="font-bold">Anyone else</span> who is curious about neuroimaging!
+            </li>
+          </ul>
+
+        </div>
+
+        <div className="p-8 ">
+          <h1 className="text-4xl font-bold pb-4 text-theme-white">
             Who develops NeuroAPEX? 
           </h1>
           <p className="text-lg text-theme-white">
@@ -78,9 +120,10 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
               open resource for the broader neuroimaging community.  Reseachers
               who develop new tools or other resources can share them here, and
               neuroscientists can share their own best-practices and related
-              resources here as well.
+              resources here as well. You can contact us with any questions or
+              concerns via email at <a className="text-theme-blue hover:underline"
+              href="mailto:contact@neuroapex.io">contact@neuroapex.io</a>
           </p>
-
         </div>
 
         <div className="p-8">
@@ -88,10 +131,12 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
             How can I contribute? 
           </h1>
           <p className="text-lg text-theme-white">
-            You can submit your own resources via the <span
+            NeuroAPEX is a community resource, so you are encouraged to
+            contribute your own resources or any other you might see are notably
+            absent.  You can submit new resources via the <span
             className="text-theme-blue text-bold">Submit a new resource </span>
-            button at the bottom of the page for each type of resource.  You can also
-            submit a pull request on the <a className="text-theme-blue
+            button at the bottom of the page for each type of resource.  You can
+            also submit a pull request on the <a className="text-theme-blue
             hover:underline" href="https://github.com/cabeen/neuroapex"> 
             NeuroAPEX GitHub repository</a>.
           </p>
@@ -104,7 +149,7 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
           <p className="text-lg text-theme-white">
             In this section, we will have a statement about any limitations on
             how it can be used and that this is a research tool that is not for
-            clinical decision making. 
+            clinical decision making or marketing purposes. 
           </p>
         </div>
       </div>
