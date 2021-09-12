@@ -1,23 +1,23 @@
 import React, { useContext, useState } from "react"
 import { Layout } from "~/components/Layout"
 import { SearchContext } from "~/context/SearchContext"
-import SubmitModal from "../components/SubmitModal"
-import TagCloud from "../components/TagCloud"
+import SubmitModal from "~/components/SubmitModal"
+import TagCloud from "~/components/TagCloud"
 import Card from "~/components/Card"
-import { Dataset } from "~/model/dataset"
+import { Paper } from "~/model/paper"
 
-export const DatasetsPage = ({ hideControls = false }) => {
+export const PapersPage = ({ hideControls = false }) => {
 
   const [modalOpen, setModalOpen] = useState<boolean>(false)
 
   const {
-    datasets,
-    tagsDatasets,
-    activeTagDatasets,
-    setActiveTagDatasets,
-    clearTagDatasets,
-    searchInputDatasets,
-    setSearchDatasets,
+    papers,
+    tagsPapers,
+    activeTagPapers,
+    setActiveTagPapers,
+    clearTagPapers,
+    searchInputPapers,
+    setSearchPapers,
   } = useContext(SearchContext)
 
   return (
@@ -26,25 +26,25 @@ export const DatasetsPage = ({ hideControls = false }) => {
         <header className="text-center">
           <div className="pr-4 pb-12 pt-4 flex flex-row justify-end"></div>
           <h1 className="text-5xl font-bold pb-5 text-theme-blue">
-            NeuroAPEX: the Datasets
+            NeuroAPEX: the Papers
           </h1>
           <p className="text-lg text-theme-white font-bold">
-            a knowledge base of reference, normative, and disease datasets for neuroimage analysis 
+            a knowledge base of important papers for neuroimage analysis 
           </p>
           {!hideControls && (
             <>
               <div className="py-5 mx-auto">
                 <TagCloud
-                  tags={tagsDatasets}
-                  activeTag={activeTagDatasets}
-                  toggleTag={setActiveTagDatasets}
-                  clearTag={clearTagDatasets}
+                  tags={tagsPapers}
+                  activeTag={activeTagPapers}
+                  toggleTag={setActiveTagPapers}
+                  clearTag={clearTagPapers}
                 />
               </div>
               <div className="px-4 md:px-12 mx-auto flex flex-col md:flex-row">
                 <input
-                  value={searchInputDatasets}
-                  onChange={e => setSearchDatasets(e.target.value)}
+                  value={searchInputPapers}
+                  onChange={e => setSearchPapers(e.target.value)}
                   placeholder="Search..."
                   className="border rounded shadow p-2 flex-grow mr-2 text-lg bg-theme-dark text-theme-white font-bold"
                 />
@@ -55,15 +55,15 @@ export const DatasetsPage = ({ hideControls = false }) => {
 
         <main className="mx-auto">
           <div className="justify-center flex flex-col sm:flex-row flex-nowrap sm:flex-wrap mt-12">
-            {datasets.map((dataset: Dataset, index: number) => {
+            {papers.map((paper: Paper, index: number) => {
               return (
                 <Card
-                  key={`${dataset.name.replace(" ", "-")}-${index}`}
-                  title={dataset.name}
-                  description={dataset.description}
-                  url={dataset.url}
-                  tags={dataset.tags}
-                  activeTag={activeTagDatasets}
+                  key={`${paper.name.replace(" ", "-")}-${index}`}
+                  title={paper.name}
+                  description={paper.description}
+                  url={paper.url}
+                  tags={paper.tags}
+                  activeTag={activeTagPapers}
                 />
               )
             })}
@@ -82,4 +82,4 @@ export const DatasetsPage = ({ hideControls = false }) => {
   )
 }
 
-export default DatasetsPage 
+export default PapersPage 

@@ -8,6 +8,8 @@ module.exports = {
     `gatsby-transformer-json`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    "gatsby-plugin-image",
+    "gatsby-plugin-mdx",
     `gatsby-image`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -15,6 +17,34 @@ module.exports = {
         name: `data`,
         path: `${__dirname}/static`,
       },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `resources/tools`,
+        path: `${__dirname}/resources/tools`,
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `resources/datasets`,
+        path: `${__dirname}/resources/datasets`,
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `resources/papers`,
+        path: `${__dirname}/resources/papers`,
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `resources/tutorials`,
+        path: `${__dirname}/resources/tutorials`,
+      }
     },
     {
       resolve: `gatsby-plugin-web-font-loader`,

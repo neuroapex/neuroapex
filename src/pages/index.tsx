@@ -4,9 +4,8 @@ import { Layout } from "~/components/Layout"
 import Card from "~/components/Card"
 import { Tool } from "~/model/tool"
 import { SearchContext } from "~/context/SearchContext"
-import { AboveFold } from "../components/AboveFold"
-import SubmitModal from "../components/SubmitModal"
-import logo from "../../static/logo.png"
+import SubmitModal from "~/components/SubmitModal"
+import { StaticImage } from 'gatsby-plugin-image'
 
 interface Props {
   hideControls?: boolean
@@ -20,7 +19,7 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
   return (
     <Layout>
         <div className="pr-4 pb-2 pt-2 flex flex-row justify-center">
-            <img src={logo} alt="NeuroApex Logo" />
+            <StaticImage alt="NeuroAPEX Logo" src="../images/logo.png" />
         </div>
         <div className="pr-4 pb-2 pt-2 flex flex-row justify-center text-5xl font-bold pb-5 text-theme-blue">
             NeuroAPEX

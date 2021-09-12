@@ -2,7 +2,7 @@
 import React, { useState } from "react"
 import { Helmet } from "react-helmet"
 import {Link} from 'gatsby'
-import MyImage from "../../static/logo.png"
+import { StaticImage } from 'gatsby-plugin-image'
 
 interface Props {
   hideControls?: boolean
@@ -48,7 +48,7 @@ export const Head: React.FC<Props> = ({ children, hideControls = false }) => {
       <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
         <div class="flex items-center flex-shrink-0 text-white mr-4">
           <Link to="/">
-            <img src={MyImage} alt="NeuroApex Logo" width="75px"/>
+            <StaticImage alt="NeuroAPEX Logo" src="../images/logo.png" width={75} loading="eager"/>
           </Link>
         </div>
         <div class="flex items-center flex-shrink-0 text-white mr-8">

@@ -1,23 +1,23 @@
 import React, { useContext, useState } from "react"
 import { Layout } from "~/components/Layout"
 import { SearchContext } from "~/context/SearchContext"
-import SubmitModal from "../components/SubmitModal"
-import TagCloud from "../components/TagCloud"
+import SubmitModal from "~/components/SubmitModal"
+import TagCloud from "~/components/TagCloud"
 import Card from "~/components/Card"
-import { Tool } from "~/model/tool"
+import { Tutorial } from "~/model/tutorial"
 
-export const ToolsPage = ({ hideControls = false }) => {
+export const TutorialsPage = ({ hideControls = false }) => {
 
   const [modalOpen, setModalOpen] = useState<boolean>(false)
 
   const {
-    tools,
-    tagsTools,
-    activeTagTools,
-    setActiveTagTools,
-    clearTagTools,
-    searchInputTools,
-    setSearchTools,
+    tutorials,
+    tagsTutorials,
+    activeTagTutorials,
+    setActiveTagTutorials,
+    clearTagTutorials,
+    searchInputTutorials,
+    setSearchTutorials,
   } = useContext(SearchContext)
 
   return (
@@ -26,25 +26,25 @@ export const ToolsPage = ({ hideControls = false }) => {
         <header className="text-center">
           <div className="pr-4 pb-12 pt-4 flex flex-row justify-end"></div>
           <h1 className="text-5xl font-bold pb-5 text-theme-blue">
-            NeuroAPEX: the Tools
+            NeuroAPEX: the Tutorials
           </h1>
           <p className="text-lg text-theme-white font-bold">
-            a knowledge base of individual software tools for neuroimage analysis 
+            a knowledge base of tutorials for neuroimage analysis 
           </p>
           {!hideControls && (
             <>
               <div className="py-5 mx-auto">
                 <TagCloud
-                  tags={tagsTools}
-                  activeTag={activeTagTools}
-                  toggleTag={setActiveTagTools}
-                  clearTag={clearTagTools}
+                  tags={tagsTutorials}
+                  activeTag={activeTagTutorials}
+                  toggleTag={setActiveTagTutorials}
+                  clearTag={clearTagTutorials}
                 />
               </div>
               <div className="px-4 md:px-12 mx-auto flex flex-col md:flex-row">
                 <input
-                  value={searchInputTools}
-                  onChange={e => setSearchTools(e.target.value)}
+                  value={searchInputTutorials}
+                  onChange={e => setSearchTutorials(e.target.value)}
                   placeholder="Search..."
                   className="border rounded shadow p-2 flex-grow mr-2 text-lg bg-theme-dark text-theme-white font-bold"
                 />
@@ -55,15 +55,15 @@ export const ToolsPage = ({ hideControls = false }) => {
 
         <main className="mx-auto">
           <div className="justify-center flex flex-col sm:flex-row flex-nowrap sm:flex-wrap mt-12">
-            {tools.map((tool: Tool, index: number) => {
+            {tutorials.map((tutorial: Tutorial, index: number) => {
               return (
                 <Card
-                  key={`${tool.name.replace(" ", "-")}-${index}`}
-                  title={tool.name}
-                  description={tool.description}
-                  url={tool.url}
-                  tags={tool.tags}
-                  activeTag={activeTagTools}
+                  key={`${tutorial.name.replace(" ", "-")}-${index}`}
+                  title={tutorial.name}
+                  description={tutorial.description}
+                  url={tutorial.url}
+                  tags={tutorial.tags}
+                  activeTag={activeTagTutorials}
                 />
               )
             })}
@@ -82,4 +82,4 @@ export const ToolsPage = ({ hideControls = false }) => {
   )
 }
 
-export default ToolsPage 
+export default TutorialsPage 
