@@ -34,7 +34,7 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
             What is NeuroAPEX? 
           </h1>
           <div className="text-lg text-theme-white">
-            NeuroAPEX is an web resource for helping neuroscientists better
+            NeuroAPEX is a web resource for helping neuroscientists better
             understand and assess how they can analyze their neuroimaging
             data to answer their own scientific questions.  There is a great
             variety of publicly available tools for image analytics, and while
@@ -52,9 +52,9 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
             publications, and tutorials.  Taken together, this is meant to
             capture the collective practical expertise of the community,
             something which more often shared informally through channels such
-            as lab meetings, collaborations occuring from chance encounters,
+            as lab meetings, collaborations occurring from chance encounters,
             water cooler conversation, etc.  We aim for NeuroAPEX to provide an
-            open and accessible route to reach this expertise, with flexibily
+            open and accessible route to reach this expertise, with flexibility
             for growing along with the field and with additions from the
             community itself.  This is also a venue for analytics researchers to
             share their resources and connect to a broader community of users.
