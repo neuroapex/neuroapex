@@ -304,45 +304,45 @@ const _getTagsWithCountsTutorials = (data: Tutorial[]): Tag[] => {
 export const SearchContext = createContext<SearchContext>({} as SearchContext)
 
 export const SearchContextProvider: React.FC = ({ children }) => {
-  const query = useStaticQuery<{
-    staticJson: {
-      tools: Tool[]
-      datasets: Dataset[]
-      papers: Paper[]
-      tutorials: Tutorial[]
-    }
-  }>(graphql`
+  const markdownPages = useStaticQuery(graphql`
     query {
-      staticJson {
-        tools {
-          name
-          description
-          url
-          tags
-        }
-        datasets {
-          name
-          description
-          url
-          tags
-        }
-        papers {
-          name
-          description
-          url
-          tags
-        }
-        tutorials {
-          name
-          description
-          url
-          tags
+      allMdx {
+        nodes {
+          frontmatter {
+            name
+            description
+            tags
+            url
+            type
+          }
         }
       }
     }
   `)
 
-  const { tools, datasets, papers, tutorials } = query.staticJson
+  let tools: Tool[] = [];
+  let datasets: Dataset[] = [];
+  let tutorials: Tutorial[] = [];
+  let papers: Paper[] = [];
+
+  markdownPages.allMdx.nodes.forEach((page : any) => {
+    switch (page.frontmatter.type) {
+      case "dataset":
+        datasets.push({...page.frontmatter});
+        return;
+      case "tool":
+        tools.push({...page.frontmatter});
+        return;
+      case "tutorial":
+        tutorials.push({...page.frontmatter});
+        return;
+      case "paper":
+        papers.push({...page.frontmatter});
+        return;
+      default:
+        return;
+    }
+  })
   
   // *************
   // *** TOOLS ***
