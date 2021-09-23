@@ -43,6 +43,7 @@
     "babel-preset-gatsby": "^1.4.0",
     "gatsby-plugin-postcss": "^4.4.0",
     "joi": "^17.4.0",
+    "js-yaml": "^4.1.0",
     "patch-package": "^6.4.7",
     "postcss": "^8.2.13",
     "prettier": "2.2.1",
