@@ -108,19 +108,22 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
             Who develops NeuroAPEX? 
           </h1>
           <p className="text-lg text-theme-white">
-              NeuroAPEX was created and maintained by <a className="text-theme-blue
-              hover:underline" href="https://cabeen.io"> Ryan P. Cabeen </a>
-              along with the <a className="text-theme-blue hover:underline"
+							NeuroAPEX is developed and maintained by <a
+              className="text-theme-blue hover:underline" 
+              href="https://cabeen.io"> Ryan P. Cabeen</a>, 
+              <a className="text-theme-blue hover:underline"
+              href="https://github.com/archit-p"> Archit Pandey</a>, 
+              the <a className="text-theme-blue hover:underline"
               href="http://gaain.org/">The Global Alzheimer's Association
               Interactive Network (GAAIN)</a> team, with support from the <a
               className="text-theme-blue hover:underline"
               href="https://www.alzheimersdata.org/"> Alzheimer's Disease Data
-              Initiative (ADDI)</a>. Ultimately though, this is meant to be an
-              open resource for the broader neuroimaging community.  Reseachers
-              who develop new tools or other resources can share them here, and
-              neuroscientists can share their own best-practices and related
-              resources here as well. You can contact us with any questions or
-              concerns via email at <a className="text-theme-blue hover:underline"
+              Initiative (ADDI)</a>. NeuroAPEX is an
+							open resource for the broader neuroimaging community, and
+              reseachers who develop new tools or other resources can share 
+              them here, and neuroscientists can share their own best-practices               and related resources here as well. You can contact us with any 
+              questions or concerns via email at <a
+              className="text-theme-blue hover:underline"
               href="mailto:contact@neuroapex.io">contact@neuroapex.io</a>
           </p>
         </div>
