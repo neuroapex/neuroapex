@@ -34,7 +34,7 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
             What is NeuroAPEX? 
           </h1>
           <div className="text-lg text-theme-white">
-            NeuroAPEX is an web resource for helping neuroscientists better
+            NeuroAPEX is a web resource for helping neuroscientists better
             understand and assess how they can analyze their neuroimaging
             data to answer their own scientific questions.  There is a great
             variety of publicly available tools for image analytics, and while
@@ -52,9 +52,9 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
             publications, and tutorials.  Taken together, this is meant to
             capture the collective practical expertise of the community,
             something which more often shared informally through channels such
-            as lab meetings, collaborations occuring from chance encounters,
+            as lab meetings, collaborations occurring from chance encounters,
             water cooler conversation, etc.  We aim for NeuroAPEX to provide an
-            open and accessible route to reach this expertise, with flexibily
+            open and accessible route to reach this expertise, with flexibility
             for growing along with the field and with additions from the
             community itself.  This is also a venue for analytics researchers to
             share their resources and connect to a broader community of users.
@@ -108,19 +108,22 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
             Who develops NeuroAPEX? 
           </h1>
           <p className="text-lg text-theme-white">
-              NeuroAPEX was created and maintained by <a className="text-theme-blue
-              hover:underline" href="https://cabeen.io"> Ryan P. Cabeen </a>
-              along with the <a className="text-theme-blue hover:underline"
+							NeuroAPEX is developed and maintained by <a
+              className="text-theme-blue hover:underline" 
+              href="https://cabeen.io"> Ryan P. Cabeen</a>, 
+              <a className="text-theme-blue hover:underline"
+              href="https://github.com/archit-p"> Archit Pandey</a>, 
+              the <a className="text-theme-blue hover:underline"
               href="http://gaain.org/">The Global Alzheimer's Association
               Interactive Network (GAAIN)</a> team, with support from the <a
               className="text-theme-blue hover:underline"
               href="https://www.alzheimersdata.org/"> Alzheimer's Disease Data
-              Initiative (ADDI)</a>. Ultimately though, this is meant to be an
-              open resource for the broader neuroimaging community.  Reseachers
-              who develop new tools or other resources can share them here, and
-              neuroscientists can share their own best-practices and related
-              resources here as well. You can contact us with any questions or
-              concerns via email at <a className="text-theme-blue hover:underline"
+              Initiative (ADDI)</a>. NeuroAPEX is an
+							open resource for the broader neuroimaging community, and
+              reseachers who develop new tools or other resources can share 
+              them here, and neuroscientists can share their own best-practices               and related resources here as well. You can contact us with any 
+              questions or concerns via email at <a
+              className="text-theme-blue hover:underline"
               href="mailto:contact@neuroapex.io">contact@neuroapex.io</a>
           </p>
         </div>

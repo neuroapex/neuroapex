@@ -6,17 +6,9 @@
   <p>A collection of neuroimaging resources from around the internet</p>
 </div> -->
 
-![logo](./logo.svg)
-
 ## NeuroAPEX
 
-A collection of neuroimaging resources from around the internet
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/278a13fc-df3d-4590-83fe-a7decd564592/deploy-status)](https://app.netlify.com/sites/neuroapex/deploys)
-
-[![Data Validation CI](https://github.com/cabeen/neuroapex/actions/workflows/validation.yaml/badge.svg)](https://github.com/cabeen/neuroapex/actions/workflows/validation.yaml)
-
-[![Test CI](https://github.com/cabeen/neuroapex/actions/workflows/test.yaml/badge.svg)](https://github.com/cabeen/neuroapex/actions/workflows/test.yaml)
+A curated collection of neuroimaging resources.
 
 ## Contributing to the list
 
