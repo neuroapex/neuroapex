@@ -64,6 +64,7 @@ export const ToolsPage = ({ hideControls = false }) => {
                   url={tool.url}
                   tags={tool.tags}
                   activeTag={activeTagTools}
+                  slug={tool.slug}
                 />
               )
             })}

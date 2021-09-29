@@ -3,4 +3,5 @@ export interface Dataset {
   description: string
   url: string
   tags: string[]
+  slug: string
 }

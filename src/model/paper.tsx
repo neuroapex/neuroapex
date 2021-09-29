@@ -3,4 +3,5 @@ export interface Paper {
   description: string
   url: string
   tags: string[]
+  slug: string
 }
