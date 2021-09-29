@@ -3,4 +3,5 @@ export interface Tool {
   description: string
   url: string
   tags: string[]
+  slug: string
 }

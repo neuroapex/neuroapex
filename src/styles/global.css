@@ -3,3 +3,16 @@ html,
 body {
   background-color: #2f323a;
 }
+
+.ReactModal__Body--open {
+  overflow: hidden;
+}
+
+.ReactModal__Overlay {
+  background-color: transparent !important;
+}
+
+.ReactModal__Content {
+  background-color: #2f323a !important;
+  padding: 0px !important;
+}

@@ -1,4 +1,5 @@
 import classNames from "classnames"
+import { Link } from "gatsby"
 import React, { useContext } from "react"
 import { SearchContext } from "~/context/SearchContext"
 import { Tag } from "../model/tag"
@@ -8,10 +9,11 @@ interface Props {
   url: string
   description: string
   tags: string[]
-  activeTag: Tag | null;
+  activeTag: Tag | null,
+  slug: string;
 }
 
-const Card: React.FC<Props> = ({ title, url, description, tags , activeTag}) => {
+const Card: React.FC<Props> = ({ title, url, description, tags , activeTag, slug}) => {
 
   function getTagClassnames(item: string) {
     const active = item === activeTag?.name
@@ -23,7 +25,7 @@ const Card: React.FC<Props> = ({ title, url, description, tags , activeTag}) => 
 
   return (
     <div className="border shadow rounded-lg h-128 sm:w-72 p-4 m-2 overflow-hidden">
-      <h1 className="text-lg font-bold text-theme-white">{title}</h1>
+      <Link state={{ modal: true}} to={slug}><h1 className="text-lg font-bold text-theme-white">{title}</h1></Link>
       <a href={url} className="text-sm text-theme-blue hover:underline w-72">
         {url}
       </a>

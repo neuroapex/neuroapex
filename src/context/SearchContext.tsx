@@ -308,6 +308,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
     query {
       allMdx {
         nodes {
+          slug
           frontmatter {
             name
             description
@@ -328,16 +329,16 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   markdownPages.allMdx.nodes.forEach((page : any) => {
     switch (page.frontmatter.type) {
       case "dataset":
-        datasets.push({...page.frontmatter});
+        datasets.push({slug: "/datasets/" + page.slug, ...page.frontmatter});
         return;
       case "tool":
-        tools.push({...page.frontmatter});
+        tools.push({slug: "/tools/" + page.slug, ...page.frontmatter});
         return;
       case "tutorial":
-        tutorials.push({...page.frontmatter});
+        tutorials.push({slug: "/tutorials/" + page.slug, ...page.frontmatter});
         return;
       case "paper":
-        papers.push({...page.frontmatter});
+        papers.push({slug: "/papers/" + page.slug, ...page.frontmatter});
         return;
       default:
         return;

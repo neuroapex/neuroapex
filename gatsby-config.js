@@ -11,6 +11,7 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-mdx",
     `gatsby-image`,
+    `gatsby-plugin-modal-routing-3`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

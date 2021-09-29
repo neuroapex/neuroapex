@@ -34,6 +34,7 @@ exports.createPages = ({ actions, graphql }) => {
             collection
             description
             url
+            tags
           }
           body
         }

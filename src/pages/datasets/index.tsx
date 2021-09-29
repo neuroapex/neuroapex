@@ -64,6 +64,7 @@ export const DatasetsPage = ({ hideControls = false }) => {
                   url={dataset.url}
                   tags={dataset.tags}
                   activeTag={activeTagDatasets}
+                  slug={dataset.slug}
                 />
               )
             })}

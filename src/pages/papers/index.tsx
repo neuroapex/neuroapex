@@ -64,6 +64,7 @@ export const PapersPage = ({ hideControls = false }) => {
                   url={paper.url}
                   tags={paper.tags}
                   activeTag={activeTagPapers}
+                  slug={paper.slug}
                 />
               )
             })}

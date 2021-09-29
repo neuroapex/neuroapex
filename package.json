@@ -15,6 +15,7 @@
     "gatsby-plugin-image": "^1.4.0",
     "gatsby-plugin-manifest": "^3.7.1",
     "gatsby-plugin-mdx": "^2.13.0",
+    "gatsby-plugin-modal-routing-3": "^3.0.0",
     "gatsby-plugin-plausible": "0.0.7",
     "gatsby-plugin-preact": "^5.7.1",
     "gatsby-plugin-react-helmet": "^4.5.0",

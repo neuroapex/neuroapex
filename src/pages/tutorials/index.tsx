@@ -64,6 +64,7 @@ export const TutorialsPage = ({ hideControls = false }) => {
                   url={tutorial.url}
                   tags={tutorial.tags}
                   activeTag={activeTagTutorials}
+                  slug={tutorial.slug}
                 />
               )
             })}
