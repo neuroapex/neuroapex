@@ -70,7 +70,7 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
               involved in neuroimaging research who wants to know more about
               image analytics.  To give a few example, this might include:
           </p>
-          <ul className="list-disc mr-32 pl-32 pt-4 text-lg text-theme-white">
+          <ul className="list-disc mr-32 pl-16 pt-4 text-lg text-theme-white">
             <li className="p-2">
               <span className="font-bold">Clinical researchers</span>, who have
               collected data from patients and are wondering how
