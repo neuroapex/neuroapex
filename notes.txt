@@ -77,4 +77,14 @@ https://www.bic.mni.mcgill.ca/ServicesAtlases/ICBM152NLin2009
 
 https://link.springer.com/chapter/10.1007%2F978-3-030-87615-9_2
 https://zenodo.org/record/5153507#%23.YQgEA3UzbRY
+https://openneuro.org/datasets/ds002232/versions/1.0.0
+https://openneuro.org/
+https://openneuro.org/datasets/ds002179/versions/1.1.0
+https://openneuro.org/datasets/ds003826/versions/1.0.0
+https://openneuro.org/datasets/ds001875/versions/1.0.3
+https://openneuro.org/datasets/ds003563/versions/1.0.1
+https://openneuro.org/datasets/ds000206/versions/1.0.0
+https://openneuro.org/datasets/ds003416/versions/2.0.2
+https://openneuro.org/datasets/ds001378/versions/00003
+
 
