@@ -87,4 +87,18 @@ https://openneuro.org/datasets/ds000206/versions/1.0.0
 https://openneuro.org/datasets/ds003416/versions/2.0.2
 https://openneuro.org/datasets/ds001378/versions/00003
 
+http://brain.labsolver.org/home
+http://brain.labsolver.org/diffusion-mri-data/duke-civm-brainstem-200micron
+http://brain.labsolver.org/diffusion-mri-templates/tractography
+http://brain.labsolver.org/diffusion-mri-templates/hcp-842-hcp-1021
+http://brain.labsolver.org/diffusion-mri-data/hcp-dmri-data
+http://brain.labsolver.org/diffusion-mri-data/hcp-dmri-data-mgh
+http://brain.labsolver.org/diffusion-mri-data/ntu-dmri-data
+http://brain.labsolver.org/diffusion-mri-data/penthera3t-12x6-scan-rescan
+http://brain.labsolver.org/diffusion-mri-data/traveling-subject
+http://brain.labsolver.org/diffusion-mri-data/mgh-760-m-dmri-data
+http://brain.labsolver.org/high-resolution-structural-images/bigbrain
+http://brain.labsolver.org/high-resolution-structural-images/mgh-100-micron-flash
+http://brain.labsolver.org/other-resources/indi-data
+
 
