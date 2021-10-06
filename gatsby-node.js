@@ -29,14 +29,9 @@ exports.createPages = ({ actions, graphql }) => {
         nodes {
           slug
           frontmatter {
-            name
             type
             collection
-            description
-            url
-            tags
           }
-          body
         }
       }
     }
@@ -50,15 +45,15 @@ exports.createPages = ({ actions, graphql }) => {
         (e) => e.type == node.frontmatter.type
       );
       if (template === undefined) {
-        return;
+        return Promise.reject("Template is undefined");
       }
       createPage({
         path: template.pathPrefix + node.slug,
         component: template.template,
         context: {
           // additional data can be passed via context
-          frontmatter: node.frontmatter,
-          body: node.body,
+          collection: node.frontmatter.collection,
+          slug: node.slug
         },
       });
     });
