@@ -315,6 +315,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
             tags
             url
             type
+            header
           }
         }
       }
