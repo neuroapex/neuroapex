@@ -70,6 +70,9 @@ Dwi Principles:
 https://www.youtube.com/watch?v=J_aamnpRJE8
 https://www.youtube.com/watch?v=twsV81UFFcE
 
+MRI Principles (Stanford RAD229):
+https://www.youtube.com/playlist?list=PLscv4NA0bNSOWYDILwQPuXURMVkSaGuEU
+
 Datasets
 ========
 
