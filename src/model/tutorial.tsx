@@ -4,4 +4,5 @@ export interface Tutorial {
   url: string
   tags: string[]
   slug: string
+  header: string
 }
