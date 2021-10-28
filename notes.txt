@@ -74,6 +74,17 @@ https://www.youtube.com/watch?v=twsV81UFFcE
 MRI Principles (Stanford RAD229):
 https://www.youtube.com/playlist?list=PLscv4NA0bNSOWYDILwQPuXURMVkSaGuEU
 
+
+https://ocw.mit.edu/courses/brain-and-cognitive-sciences/9-13-the-human-brain-spring-2019/index.htm
+
+https://ocw.mit.edu/courses/brain-and-cognitive-sciences/9-71-functional-mri-of-high-level-vision-fall-2007/index.htm
+
+https://ocw.mit.edu/courses/nuclear-engineering/22-56j-noninvasive-imaging-in-biology-and-medicine-fall-2005/index.htm
+
+https://ocw.mit.edu/courses/nuclear-engineering/22-058-principles-of-medical-imaging-fall-2002/
+
+
+
 Datasets
 ========
 
