@@ -74,8 +74,21 @@ https://www.youtube.com/watch?v=twsV81UFFcE
 MRI Principles (Stanford RAD229):
 https://www.youtube.com/playlist?list=PLscv4NA0bNSOWYDILwQPuXURMVkSaGuEU
 
+<<<<<<< HEAD
 Disease:
 https://www.youtube.com/watch?v=7F-t9yvPP_0&t=1s
+=======
+
+https://ocw.mit.edu/courses/brain-and-cognitive-sciences/9-13-the-human-brain-spring-2019/index.htm
+
+https://ocw.mit.edu/courses/brain-and-cognitive-sciences/9-71-functional-mri-of-high-level-vision-fall-2007/index.htm
+
+https://ocw.mit.edu/courses/nuclear-engineering/22-56j-noninvasive-imaging-in-biology-and-medicine-fall-2005/index.htm
+
+https://ocw.mit.edu/courses/nuclear-engineering/22-058-principles-of-medical-imaging-fall-2002/
+
+
+>>>>>>> 70753ba1d176bfb2e92f51b2249f50792ff9590c
 
 Datasets
 ========
@@ -157,3 +170,15 @@ Papers
 ======
 
 https://www.biorxiv.org/content/10.1101/2021.06.11.448063v2.abstract?%3Fcollection=
+
+Datasets
+========
+https://openneuro.org/
+https://hbm.brainminds-beyond.jp/
+
+Collections
+===========
+https://www.sciencedirect.com/science/article/pii/S1361841521003108
+https://openneuro.org/datasets/ds003590/versions/1.0.2
+https://github.com/acasamitjana/3dhirest
+
