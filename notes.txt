@@ -84,6 +84,9 @@ https://ocw.mit.edu/courses/nuclear-engineering/22-56j-noninvasive-imaging-in-bi
 https://ocw.mit.edu/courses/nuclear-engineering/22-058-principles-of-medical-imaging-fall-2002/
 
 
+https://brainder.org/2012/09/23/the-nifti-file-format/
+https://www.pnas.org/content/95/3/788.abstract
+
 
 Datasets
 ========
@@ -160,6 +163,13 @@ https://www.nitrc.org/projects/dtiprep/
 https://github.com/MASILab/PreQual
 https://github.com/MASILab/Synb0-DISCO
 https://www.xnat.org/
+https://sourceforge.net/projects/nidb/
+https://nipy.org/
+https://github.com/nipy/nipype
+https://napari.org/
+https://github.com/PyMVPA/PyMVPA
+https://github.com/nipy/mindboggle
+
 
 Papers
 ======
