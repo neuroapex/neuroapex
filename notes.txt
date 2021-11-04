@@ -74,6 +74,10 @@ https://www.youtube.com/watch?v=twsV81UFFcE
 MRI Principles (Stanford RAD229):
 https://www.youtube.com/playlist?list=PLscv4NA0bNSOWYDILwQPuXURMVkSaGuEU
 
+<<<<<<< HEAD
+Disease:
+https://www.youtube.com/watch?v=7F-t9yvPP_0&t=1s
+=======
 
 https://ocw.mit.edu/courses/brain-and-cognitive-sciences/9-13-the-human-brain-spring-2019/index.htm
 
@@ -84,9 +88,13 @@ https://ocw.mit.edu/courses/nuclear-engineering/22-56j-noninvasive-imaging-in-bi
 https://ocw.mit.edu/courses/nuclear-engineering/22-058-principles-of-medical-imaging-fall-2002/
 
 
+<<<<<<< HEAD
 https://brainder.org/2012/09/23/the-nifti-file-format/
 https://www.pnas.org/content/95/3/788.abstract
 
+=======
+>>>>>>> 70753ba1d176bfb2e92f51b2249f50792ff9590c
+>>>>>>> d75a4f1a31a5c476382adca6c5e615323c0504ad
 
 Datasets
 ========
@@ -180,6 +188,7 @@ Datasets
 ========
 https://openneuro.org/
 https://hbm.brainminds-beyond.jp/
+https://fcon_1000.projects.nitrc.org/indi/PRIME/uwmadison.html
 
 Collections
 ===========
