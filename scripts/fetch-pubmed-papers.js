@@ -73,6 +73,8 @@ Object.entries(idFile).forEach(([collection, pmids]) => {
         frontmatter.url = data.link.toString();
         frontmatter.collection = collection;
         frontmatter.tags = ["new"];
+        frontmatter.createdAt = new Date().toISOString();
+        frontmatter.updatedAt = new Date().toISOString();
 
         const dirPath = "./resources/papers/" + getFilename(frontmatter.name);
         if (!fs.existsSync(dirPath)) {
@@ -80,6 +82,19 @@ Object.entries(idFile).forEach(([collection, pmids]) => {
         }
 
         const filePath = dirPath + "/index.mdx";
+        if (fs.existsSync(filePath)) {
+          var oldContents = fs.readFileSync(filePath, 'utf-8');
+          var frontmatterStartPos = 3;
+          oldContents = oldContents.substr(frontmatterStartPos, oldContents.length - 3);
+          var frontmatterEndPos = oldContents.search("---");
+          oldContents = oldContents.substr(0, frontmatterEndPos);
+          
+          var oldFrontmatter = yaml.load(oldContents);
+          if (oldFrontmatter.createdAt) {
+            frontmatter.createdAt = oldFrontmatter.createdAt;
+          }
+        }
+
         var mdFile = fs.createWriteStream(filePath, { flags: "w" });
 
         mdFile.write("---\n", errorHandler);

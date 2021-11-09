@@ -59,6 +59,8 @@ Object.entries(linkFile).forEach(([collection, links]) => {
         mdFrontmatter.collection = collection;
         mdFrontmatter.header = data.thumbnailUrl;
         mdFrontmatter.tags = ["new"];
+        mdFrontmatter.createdAt = new Date().toISOString();
+        mdFrontmatter.updatedAt = new Date().toISOString();
 
         const dirPath = "./resources/tutorials/" + getFilename(data.title);
         if (!fs.existsSync(dirPath)) {
@@ -66,6 +68,19 @@ Object.entries(linkFile).forEach(([collection, links]) => {
         }
 
         const filePath = dirPath + "/index.mdx";
+        if (fs.existsSync(filePath)) {
+          var oldContents = fs.readFileSync(filePath, 'utf-8');
+          var frontmatterStartPos = 3;
+          oldContents = oldContents.substr(3, oldContents.length - 3);
+          var frontmatterEndPos = oldContents.search("---");
+          oldContents = oldContents.substr(0, frontmatterEndPos);
+          
+          var oldFrontmatter = yaml.load(oldContents);
+          if (oldFrontmatter.createdAt) {
+            mdFrontmatter.createdAt = oldFrontmatter.createdAt;
+          }
+        }
+
         var mdFile = fs.createWriteStream(filePath, { flags: "w" });
 
         mdFile.write("---\n", errorHandler);
