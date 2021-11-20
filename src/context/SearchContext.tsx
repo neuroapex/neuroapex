@@ -15,6 +15,7 @@ interface SearchContext {
   setActiveTagTools: (tag: Tag) => void
   clearSearchTools: () => void
   clearTagTools: () => void
+  setSortTools: (value: string) => void
   datasets: Dataset[]
   tagsDatasets: Tag[]
   searchInputDatasets: string
@@ -23,6 +24,7 @@ interface SearchContext {
   setActiveTagDatasets: (tag: Tag) => void
   clearSearchDatasets: () => void
   clearTagDatasets: () => void
+  setSortDatasets: (value: string) => void
   papers: Paper[]
   tagsPapers: Tag[]
   searchInputPapers: string
@@ -31,6 +33,7 @@ interface SearchContext {
   setActiveTagPapers: (tag: Tag) => void
   clearSearchPapers: () => void
   clearTagPapers: () => void
+  setSortPapers: (value: string) => void
   tutorials: Tutorial[]
   tagsTutorials: Tag[]
   searchInputTutorials: string
@@ -39,6 +42,7 @@ interface SearchContext {
   setActiveTagTutorials: (tag: Tag) => void
   clearSearchTutorials: () => void
   clearTagTutorials: () => void
+  setSortTutorials: (value: string) => void
 }
 
 // *************
@@ -316,6 +320,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
             url
             type
             header
+            createdAt
           }
         }
       }
@@ -345,7 +350,12 @@ export const SearchContextProvider: React.FC = ({ children }) => {
         return;
     }
   })
-  
+
+  tools.sort((a, b) => a.name.localeCompare(b.name));
+  papers.sort((a, b) => a.name.localeCompare(b.name));
+  datasets.sort((a, b) => a.name.localeCompare(b.name));
+  tutorials.sort((a, b) => a.name.localeCompare(b.name));
+
   // *************
   // *** TOOLS ***
   // *************
@@ -354,6 +364,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   const [allTagsTools, _setAllTagsTools] = useState<Tag[]>([])
   const [searchInputTools, _setSearchInputTools] = useState<string>("")
   const [activeTagTools, _setActiveTagTools] = useState<Tag | null>(null)
+  const [sortInputTools, _setSortInputTools] = useState<string>("name")
 
   useEffect(() => {
     const tags = _getTagsWithCountsTools(tools)
@@ -382,10 +393,29 @@ export const SearchContextProvider: React.FC = ({ children }) => {
     }
   }, [activeTagTools])
 
+  useEffect(() => {
+    if (sortInputTools) {
+      const sortedTools = tools.sort((a, b) => {
+        switch (sortInputTools) {
+          case "name":
+            return a.name.localeCompare(b.name);
+          case "date":
+            return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+          default:
+            return 0;
+        }
+      })
+      _setFilteredTools(sortedTools);
+    } else {
+      _setFilteredTools(tools);
+    }
+  }, [sortInputTools]);
+
   const setSearchTools = (newValue: string) => _setSearchInputTools(newValue)
   const setActiveTagTools = (newTag: Tag) => _setActiveTagTools(newTag)
   const clearSearchTools = () => _setSearchInputTools("")
   const clearTagTools = () => _setActiveTagTools(null)
+  const setSortTools = (newValue: string) => _setSortInputTools(newValue)
 
   // ****************
   // *** DATASETS ***
@@ -395,6 +425,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   const [allTagsDatasets, _setAllTagsDatasets] = useState<Tag[]>([])
   const [searchInputDatasets, _setSearchInputDatasets] = useState<string>("")
   const [activeTagDatasets, _setActiveTagDatasets] = useState<Tag | null>(null)
+  const [sortInputDatasets, _setSortInputDatasets] = useState<string>("name")
 
   useEffect(() => {
     const tags = _getTagsWithCountsDatasets(datasets)
@@ -424,6 +455,24 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   }, [activeTagDatasets])
 
   useEffect(() => {
+    if (sortInputDatasets) {
+      const sortedDatasets = datasets.sort((a, b) => {
+        switch (sortInputDatasets) {
+          case "name":
+            return a.name.localeCompare(b.name);
+          case "date":
+            return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+          default:
+            return 0;
+        }
+      })
+      _setFilteredDatasets(sortedDatasets);
+    } else {
+      _setFilteredDatasets(datasets);
+    }
+  }, [sortInputDatasets]);
+
+  useEffect(() => {
     const tags = _getTagsWithCountsDatasets(datasets)
     _setAllTagsDatasets(tags)
     _setFilteredDatasets(datasets)
@@ -433,6 +482,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   const setActiveTagDatasets = (newTag: Tag) => _setActiveTagDatasets(newTag)
   const clearSearchDatasets = () => _setSearchInputDatasets("")
   const clearTagDatasets = () => _setActiveTagDatasets(null)
+  const setSortDatasets = (newValue: string) => _setSortInputDatasets(newValue)
 
   // **************
   // *** PAPERS ***
@@ -442,6 +492,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   const [allTagsPapers, _setAllTagsPapers] = useState<Tag[]>([])
   const [searchInputPapers, _setSearchInputPapers] = useState<string>("")
   const [activeTagPapers, _setActiveTagPapers] = useState<Tag | null>(null)
+  const [sortInputPapers, _setSortInputPapers] = useState<string>("name")
 
   useEffect(() => {
     const tags = _getTagsWithCountsPapers(papers)
@@ -471,6 +522,24 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   }, [activeTagPapers])
 
   useEffect(() => {
+    if (sortInputPapers) {
+      const sortedPapers = papers.sort((a, b) => {
+        switch (sortInputPapers) {
+          case "name":
+            return a.name.localeCompare(b.name);
+          case "date":
+            return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+          default:
+            return 0;
+        }
+      })
+      _setFilteredPapers(sortedPapers);
+    } else {
+      _setFilteredPapers(papers);
+    }
+  }, [sortInputPapers]);
+
+  useEffect(() => {
     const tags = _getTagsWithCountsPapers(papers)
     _setAllTagsPapers(tags)
     _setFilteredPapers(papers)
@@ -480,6 +549,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   const setActiveTagPapers = (newTag: Tag) => _setActiveTagPapers(newTag)
   const clearSearchPapers = () => _setSearchInputPapers("")
   const clearTagPapers = () => _setActiveTagPapers(null)
+  const setSortPapers = (newValue: string) => _setSortInputPapers(newValue)
 
   // *****************
   // *** TUTORIALS ***
@@ -489,6 +559,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   const [allTagsTutorials, _setAllTagsTutorials] = useState<Tag[]>([])
   const [searchInputTutorials, _setSearchInputTutorials] = useState<string>("")
   const [activeTagTutorials, _setActiveTagTutorials] = useState<Tag | null>(null)
+  const [sortInputTutorials, _setSortInputTutorials] = useState<string>("name")
 
   useEffect(() => {
     const tags = _getTagsWithCountsTutorials(tutorials)
@@ -518,6 +589,24 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   }, [activeTagTutorials])
 
   useEffect(() => {
+    if (sortInputTutorials) {
+      const sortedTutorials = tutorials.sort((a, b) => {
+        switch (sortInputTutorials) {
+          case "name":
+            return a.name.localeCompare(b.name);
+          case "date":
+            return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+          default:
+            return 0;
+        }
+      })
+      _setFilteredTutorials(sortedTutorials);
+    } else {
+      _setFilteredTutorials(tutorials);
+    }
+  }, [sortInputTutorials]);
+
+  useEffect(() => {
     const tags = _getTagsWithCountsTutorials(tutorials)
     _setAllTagsTutorials(tags)
     _setFilteredTutorials(tutorials)
@@ -527,6 +616,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   const setActiveTagTutorials = (newTag: Tag) => _setActiveTagTutorials(newTag)
   const clearSearchTutorials = () => _setSearchInputTutorials("")
   const clearTagTutorials = () => _setActiveTagTutorials(null)
+  const setSortTutorials = (newValue: string) => _setSortInputTutorials(newValue)
 
   // ***************
   // *** CONTEXT ***
@@ -544,6 +634,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
     setActiveTagTools,
     clearSearchTools,
     clearTagTools,
+    setSortTools,
     tagsDatasets: allTagsDatasets,
     searchInputDatasets,
     activeTagDatasets,
@@ -551,6 +642,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
     setActiveTagDatasets,
     clearSearchDatasets,
     clearTagDatasets,
+    setSortDatasets,
     tagsPapers: allTagsPapers,
     searchInputPapers,
     activeTagPapers,
@@ -558,6 +650,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
     setActiveTagPapers,
     clearSearchPapers,
     clearTagPapers,
+    setSortPapers,
     tagsTutorials: allTagsTutorials,
     searchInputTutorials,
     activeTagTutorials,
@@ -565,6 +658,7 @@ export const SearchContextProvider: React.FC = ({ children }) => {
     setActiveTagTutorials,
     clearSearchTutorials,
     clearTagTutorials,
+    setSortTutorials
   }
 
   return (

@@ -1,14 +1,13 @@
-import React, { useContext, useState } from "react"
-import { Layout } from "~/components/Layout"
-import { SearchContext } from "~/context/SearchContext"
-import SubmitModal from "~/components/SubmitModal"
-import TagCloud from "~/components/TagCloud"
-import Card from "~/components/Card"
-import { Paper } from "~/model/paper"
+import React, { useContext, useState } from "react";
+import { Layout } from "~/components/Layout";
+import { SearchContext } from "~/context/SearchContext";
+import SubmitModal from "~/components/SubmitModal";
+import TagCloud from "~/components/TagCloud";
+import Card from "~/components/Card";
+import { Paper } from "~/model/paper";
 
 export const PapersPage = ({ hideControls = false }) => {
-
-  const [modalOpen, setModalOpen] = useState<boolean>(false)
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
 
   const {
     papers,
@@ -18,7 +17,8 @@ export const PapersPage = ({ hideControls = false }) => {
     clearTagPapers,
     searchInputPapers,
     setSearchPapers,
-  } = useContext(SearchContext)
+    setSortPapers
+  } = useContext(SearchContext);
 
   return (
     <Layout>
@@ -29,7 +29,7 @@ export const PapersPage = ({ hideControls = false }) => {
             NeuroAPEX: the Papers
           </h1>
           <p className="text-lg text-theme-white font-bold">
-            a knowledge base of important papers for neuroimage analysis 
+            a knowledge base of important papers for neuroimage analysis
           </p>
           {!hideControls && (
             <>
@@ -41,13 +41,22 @@ export const PapersPage = ({ hideControls = false }) => {
                   clearTag={clearTagPapers}
                 />
               </div>
-              <div className="px-4 md:px-12 mx-auto flex flex-col md:flex-row">
+              <div className="px-4 md:px-12 mx-auto flex flex-col md:flex-row items-center">
                 <input
                   value={searchInputPapers}
-                  onChange={e => setSearchPapers(e.target.value)}
+                  onChange={(e) => setSearchPapers(e.target.value)}
                   placeholder="Search..."
-                  className="border rounded shadow p-2 flex-grow mr-2 text-lg bg-theme-dark text-theme-white font-bold"
+                  className="ring-1 ring-white rounded shadow p-2 flex-grow mr-2 text-sm bg-theme-dark text-theme-white h-12 focus:outline-none focus:ring-2 focus:ring-blue-300"
                 />
+                <div>
+                  <select
+                    onChange={(e) => setSortPapers(e.target.value)}
+                    className="bg-theme-dark text-theme-white text-sm p-2 ring-1 ring-white rounded h-12 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                  >
+                    <option value="name">Sorted by name</option>
+                    <option value="date">Sorted by date</option>
+                  </select>
+                </div>
               </div>
             </>
           )}
@@ -66,21 +75,23 @@ export const PapersPage = ({ hideControls = false }) => {
                   activeTag={activeTagPapers}
                   slug={paper.slug}
                 />
-              )
+              );
             })}
           </div>
         </main>
 
         <div className="pr-4 pb-12 pt-4 flex flex-row justify-center">
-          <button onClick={() => setModalOpen(true)}
-            className="py-2 px-4 mt-2 md:mt-0 rounded shadow bg-theme-blue text-theme-dark font-bold text-sm md:text-md lg:text-lg">
-            Submit a new resource 
+          <button
+            onClick={() => setModalOpen(true)}
+            className="py-2 px-4 mt-2 md:mt-0 rounded shadow bg-theme-blue text-theme-dark font-bold text-sm md:text-md lg:text-lg"
+          >
+            Submit a new resource
           </button>
         </div>
         <SubmitModal open={modalOpen} onClose={() => setModalOpen(false)} />
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default PapersPage 
+export default PapersPage;
