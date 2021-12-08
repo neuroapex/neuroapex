@@ -527,8 +527,10 @@ export const SearchContextProvider: React.FC = ({ children }) => {
         switch (sortInputPapers) {
           case "name":
             return a.name.localeCompare(b.name);
-          case "date":
+          case "newest":
             return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+          case "oldest":
+            return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
           default:
             return 0;
         }

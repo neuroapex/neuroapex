@@ -12,6 +12,7 @@ interface Props {
   activeTag: Tag | null;
   slug: string;
   header: string | null;
+  expanded: boolean | null;
 }
 
 const Card: React.FC<Props> = ({
@@ -22,6 +23,7 @@ const Card: React.FC<Props> = ({
   activeTag,
   slug,
   header,
+  expanded,
 }) => {
   function getTagClassnames(item: string) {
     const active = item === activeTag?.name;
@@ -50,17 +52,21 @@ const Card: React.FC<Props> = ({
         <a href={url} className="text-sm text-theme-blue hover:underline w-72">
           {url}
         </a>
-        <p className="py-2 text-theme-white">{description}</p>
-        <div className="flex flex-row flex-wrap py-4">
-          {tags.map((item) => {
-            const buttonClasses = getTagClassnames(item);
-            return (
-              <button onClick={() => {}} className={buttonClasses}>
-                <p className="text-xs text-theme-light font-bold">{item}</p>
-              </button>
-            );
-          })}
-        </div>
+        {expanded && (
+          <>
+            <p className="py-2 text-theme-white">{description}</p>
+            <div className="flex flex-row flex-wrap py-4">
+              {tags.map((item) => {
+                const buttonClasses = getTagClassnames(item);
+                return (
+                  <button onClick={() => {}} className={buttonClasses}>
+                    <p className="text-xs text-theme-light font-bold">{item}</p>
+                  </button>
+                );
+              })}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
