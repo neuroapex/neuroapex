@@ -182,6 +182,7 @@ https://github.com/nipy/nipype
 https://napari.org/
 https://github.com/PyMVPA/PyMVPA
 https://github.com/nipy/mindboggle
+http://www.emmanuelcaruyer.com/q-space-sampling.php
 
 
 Papers
