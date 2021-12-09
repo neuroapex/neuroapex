@@ -4,4 +4,5 @@ export interface Tool {
   url: string
   tags: string[]
   slug: string
+  createdAt: string
 }

@@ -53,9 +53,31 @@ exports.createPages = ({ actions, graphql }) => {
         context: {
           // additional data can be passed via context
           collection: node.frontmatter.collection,
-          slug: node.slug
+          slug: node.slug,
         },
       });
     });
   });
+};
+
+exports.createSchemaCustomization = ({ actions, schema }) => {
+  const { createTypes } = actions;
+  const typeDefs = [
+    "type Mdx implements Node { frontmatter: Frontmatter }",
+    schema.buildObjectType({
+      name: "Frontmatter",
+      fields: {
+        createdAt: {
+          type: "String",
+          resolve(source, args, context, info) {
+            if (source.createdAt == null) {
+              return new Date("January 1, 2021 00:00:00").toISOString();
+            }
+            return source.createdAt;
+          },
+        },
+      },
+    }),
+  ];
+  createTypes(typeDefs);
 };

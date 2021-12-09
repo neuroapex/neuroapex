@@ -1,14 +1,13 @@
-import React, { useContext, useState } from "react"
-import { Layout } from "~/components/Layout"
-import { SearchContext } from "~/context/SearchContext"
-import SubmitModal from "~/components/SubmitModal"
-import TagCloud from "~/components/TagCloud"
-import Card from "~/components/Card"
-import { Dataset } from "~/model/dataset"
+import React, { useContext, useState } from "react";
+import { Layout } from "~/components/Layout";
+import { SearchContext } from "~/context/SearchContext";
+import SubmitModal from "~/components/SubmitModal";
+import TagCloud from "~/components/TagCloud";
+import Card from "~/components/Card";
+import { Dataset } from "~/model/dataset";
 
 export const DatasetsPage = ({ hideControls = false }) => {
-
-  const [modalOpen, setModalOpen] = useState<boolean>(false)
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
 
   const {
     datasets,
@@ -18,7 +17,8 @@ export const DatasetsPage = ({ hideControls = false }) => {
     clearTagDatasets,
     searchInputDatasets,
     setSearchDatasets,
-  } = useContext(SearchContext)
+    setSortDatasets,
+  } = useContext(SearchContext);
 
   return (
     <Layout>
@@ -29,7 +29,8 @@ export const DatasetsPage = ({ hideControls = false }) => {
             NeuroAPEX: the Datasets
           </h1>
           <p className="text-lg text-theme-white font-bold">
-            a knowledge base of reference, normative, and disease datasets for neuroimage analysis 
+            a knowledge base of reference, normative, and disease datasets for
+            neuroimage analysis
           </p>
           {!hideControls && (
             <>
@@ -44,10 +45,19 @@ export const DatasetsPage = ({ hideControls = false }) => {
               <div className="px-4 md:px-12 mx-auto flex flex-col md:flex-row">
                 <input
                   value={searchInputDatasets}
-                  onChange={e => setSearchDatasets(e.target.value)}
+                  onChange={(e) => setSearchDatasets(e.target.value)}
                   placeholder="Search..."
-                  className="border rounded shadow p-2 flex-grow mr-2 text-lg bg-theme-dark text-theme-white font-bold"
+                  className="ring-1 ring-white rounded shadow p-2 flex-grow mr-2 text-sm bg-theme-dark text-theme-white font-bold h-12 focus:outline-none focus:ring-2 focus:ring-blue-300"
                 />
+                <div>
+                  <select
+                    onChange={(e) => setSortDatasets(e.target.value)}
+                    className="bg-theme-dark text-theme-white text-sm p-2 ring-1 ring-white rounded h-12 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                  >
+                    <option value="name">Sorted by name</option>
+                    <option value="date">Sorted by date</option>
+                  </select>
+                </div>
               </div>
             </>
           )}
@@ -66,21 +76,23 @@ export const DatasetsPage = ({ hideControls = false }) => {
                   activeTag={activeTagDatasets}
                   slug={dataset.slug}
                 />
-              )
+              );
             })}
           </div>
         </main>
 
         <div className="pr-4 pb-12 pt-4 flex flex-row justify-center">
-          <button onClick={() => setModalOpen(true)}
-            className="py-2 px-4 mt-2 md:mt-0 rounded shadow bg-theme-blue text-theme-dark font-bold text-sm md:text-md lg:text-lg">
-            Submit a new resource 
+          <button
+            onClick={() => setModalOpen(true)}
+            className="py-2 px-4 mt-2 md:mt-0 rounded shadow bg-theme-blue text-theme-dark font-bold text-sm md:text-md lg:text-lg"
+          >
+            Submit a new resource
           </button>
         </div>
         <SubmitModal open={modalOpen} onClose={() => setModalOpen(false)} />
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default DatasetsPage 
+export default DatasetsPage;

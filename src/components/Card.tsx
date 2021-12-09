@@ -23,7 +23,6 @@ const Card: React.FC<Props> = ({
   slug,
   header,
 }) => {
-  console.log(header);
   function getTagClassnames(item: string) {
     const active = item === activeTag?.name;
     return classNames("shadow", "rounded-lg", "py-1", "px-3", "m-1", {
