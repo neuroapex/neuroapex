@@ -54,7 +54,7 @@ export const PapersPage = ({ hideControls = false }) => {
         </header>
 
         <main className="mx-auto">
-          <div className="justify-center flex flex-col sm:flex-row flex-nowrap sm:flex-wrap mt-24">
+          <div className="justify-center flex flex-col sm:flex-row flex-nowrap sm:flex-wrap mt-12">
             {papers.map((paper: Paper, index: number) => {
               return (
                 <Card
