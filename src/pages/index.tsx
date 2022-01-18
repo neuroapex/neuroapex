@@ -115,10 +115,12 @@ export const IndexPage: React.FC<Props> = ({ children, hideControls = false }) =
               href="https://github.com/archit-p"> Archit Pandey</a>, 
               the <a className="text-theme-blue hover:underline"
               href="http://gaain.org/">The Global Alzheimer's Association
-              Interactive Network (GAAIN)</a> team, with support from the <a
-              className="text-theme-blue hover:underline"
-              href="https://www.alzheimersdata.org/"> Alzheimer's Disease Data
-              Initiative (ADDI)</a>. NeuroAPEX is an
+							Interactive Network (GAAIN)</a> team, with support from the <a
+              className="test-theme-blue hover:underline"
+              href="https://chanzuckerberg.com/">Chan Zuckerberg Initiative</a> 
+              Imaging Scientist Award Program, <a className="text-theme-blue 
+              hover:underline" href="https://www.alzheimersdata.org/"> the 
+              Alzheimer's Disease Data Initiative (ADDI)</a>. NeuroAPEX is an
 							open resource for the broader neuroimaging community, and
               reseachers who develop new tools or other resources can share 
               them here, and neuroscientists can share their own best-practices               and related resources here as well. You can contact us with any 

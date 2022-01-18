@@ -4,4 +4,5 @@ export interface Paper {
   url: string
   tags: string[]
   slug: string
+  createdAt: string
 }

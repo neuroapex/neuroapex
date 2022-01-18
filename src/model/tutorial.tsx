@@ -5,4 +5,5 @@ export interface Tutorial {
   tags: string[]
   slug: string
   header: string
+  createdAt: string
 }
