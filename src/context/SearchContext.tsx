@@ -1,10 +1,11 @@
 import { graphql, useStaticQuery } from "gatsby";
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useRef, useState } from "react";
 import { Tag } from "~/model/tag";
 import { Tool } from "~/model/tool";
 import { Dataset } from "~/model/dataset";
 import { Paper } from "~/model/paper";
 import { Tutorial } from "~/model/tutorial";
+import * as JsSearch from "js-search";
 
 interface SearchContext {
   tools: Tool[];
@@ -49,34 +50,6 @@ interface SearchContext {
 // *** TOOLS ***
 // *************
 
-const _filterOnSearchTermTools = (
-  tools: Tool[],
-  searchTerm: string
-): Tool[] => {
-  const regex = new RegExp(String.raw`${searchTerm}`);
-  return tools.filter((tool) => {
-    if (
-      tool.name &&
-      (tool.name.match(regex) || tool.name.toLowerCase().match(regex))
-    ) {
-      return tool;
-    }
-    if (
-      tool.description &&
-      (tool.description.match(regex) ||
-        tool.description.toLowerCase().match(regex))
-    ) {
-      return tool;
-    }
-    if (tool.url && tool.url.match(regex)) {
-      return tool;
-    }
-    if (tool.tags.filter((tag) => tag.toLowerCase().match(regex)).length > 0) {
-      return tool;
-    }
-  });
-};
-
 const _getTagsWithCountsTools = (data: Tool[]): Tag[] => {
   const _getCountsTools = (allTags: string[]) => {
     let countsTools = {};
@@ -118,36 +91,6 @@ const _getTagsWithCountsTools = (data: Tool[]): Tag[] => {
 // ****************
 // *** DATASETS ***
 // ****************
-
-const _filterOnSearchTermDatasets = (
-  datasets: Dataset[],
-  searchTerm: string
-): Dataset[] => {
-  const regex = new RegExp(String.raw`${searchTerm}`);
-  return datasets.filter((dataset) => {
-    if (
-      dataset.name &&
-      (dataset.name.match(regex) || dataset.name.toLowerCase().match(regex))
-    ) {
-      return dataset;
-    }
-    if (
-      dataset.description &&
-      (dataset.description.match(regex) ||
-        dataset.description.toLowerCase().match(regex))
-    ) {
-      return dataset;
-    }
-    if (dataset.url && dataset.url.match(regex)) {
-      return dataset;
-    }
-    if (
-      dataset.tags.filter((tag) => tag.toLowerCase().match(regex)).length > 0
-    ) {
-      return dataset;
-    }
-  });
-};
 
 const _getTagsWithCountsDatasets = (data: Dataset[]): Tag[] => {
   const _getCountsDatasets = (allTags: string[]) => {
@@ -191,34 +134,6 @@ const _getTagsWithCountsDatasets = (data: Dataset[]): Tag[] => {
 // *** PAPERS ***
 // **************
 
-const _filterOnSearchTermPapers = (
-  papers: Paper[],
-  searchTerm: string
-): Paper[] => {
-  const regex = new RegExp(String.raw`${searchTerm}`);
-  return papers.filter((paper) => {
-    if (
-      paper.name &&
-      (paper.name.match(regex) || paper.name.toLowerCase().match(regex))
-    ) {
-      return paper;
-    }
-    if (
-      paper.description &&
-      (paper.description.match(regex) ||
-        paper.description.toLowerCase().match(regex))
-    ) {
-      return paper;
-    }
-    if (paper.url && paper.url.match(regex)) {
-      return paper;
-    }
-    if (paper.tags.filter((tag) => tag.toLowerCase().match(regex)).length > 0) {
-      return paper;
-    }
-  });
-};
-
 const _getTagsWithCountsPapers = (data: Paper[]): Tag[] => {
   const _getCountsPapers = (allTags: string[]) => {
     let countsPapers = {};
@@ -260,36 +175,6 @@ const _getTagsWithCountsPapers = (data: Paper[]): Tag[] => {
 // *****************
 // *** TUTORIALS ***
 // *****************
-
-const _filterOnSearchTermTutorials = (
-  tutorials: Tutorial[],
-  searchTerm: string
-): Tutorial[] => {
-  const regex = new RegExp(String.raw`${searchTerm}`);
-  return tutorials.filter((tutorial) => {
-    if (
-      tutorial.name &&
-      (tutorial.name.match(regex) || tutorial.name.toLowerCase().match(regex))
-    ) {
-      return tutorial;
-    }
-    if (
-      tutorial.description &&
-      (tutorial.description.match(regex) ||
-        tutorial.description.toLowerCase().match(regex))
-    ) {
-      return tutorial;
-    }
-    if (tutorial.url && tutorial.url.match(regex)) {
-      return tutorial;
-    }
-    if (
-      tutorial.tags.filter((tag) => tag.toLowerCase().match(regex)).length > 0
-    ) {
-      return tutorial;
-    }
-  });
-};
 
 const _getTagsWithCountsTutorials = (data: Tutorial[]): Tag[] => {
   const _getCountsTutorials = (allTags: string[]) => {
@@ -337,10 +222,12 @@ const _getTagsWithCountsTutorials = (data: Tutorial[]): Tag[] => {
 export const SearchContext = createContext<SearchContext>({} as SearchContext);
 
 export const SearchContextProvider: React.FC = ({ children }) => {
+  const didMount = useRef(false);
   const markdownPages = useStaticQuery(graphql`
     query {
       allMdx {
         nodes {
+          id
           slug
           frontmatter {
             name
@@ -361,22 +248,61 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   let tutorials: Tutorial[] = [];
   let papers: Paper[] = [];
 
+  let toolsIndex = new JsSearch.Search("id");
+  toolsIndex.sanitizer = new JsSearch.LowerCaseSanitizer();
+  toolsIndex.addIndex("name");
+  toolsIndex.addIndex("description");
+  toolsIndex.addIndex("tags");
+
+  let datasetsIndex = new JsSearch.Search("id");
+  datasetsIndex.sanitizer = new JsSearch.LowerCaseSanitizer();
+  datasetsIndex.addIndex("name");
+  datasetsIndex.addIndex("description");
+  datasetsIndex.addIndex("tags");
+
+  let tutorialsIndex = new JsSearch.Search("id");
+  tutorialsIndex.sanitizer = new JsSearch.LowerCaseSanitizer();
+  tutorialsIndex.addIndex("name");
+  tutorialsIndex.addIndex("description");
+  tutorialsIndex.addIndex("tags");
+
+  let papersIndex = new JsSearch.Search("id");
+  papersIndex.sanitizer = new JsSearch.LowerCaseSanitizer();
+  papersIndex.indexStrategy = new JsSearch.PrefixIndexStrategy();
+  papersIndex.addIndex("name");
+  papersIndex.addIndex("description");
+  papersIndex.addIndex("tags");
+  papersIndex.addIndex("abstract");
+
   markdownPages.allMdx.nodes.forEach((page: any) => {
     switch (page.frontmatter.type) {
       case "dataset":
-        datasets.push({ slug: "/datasets/" + page.slug, ...page.frontmatter });
+        datasets.push({
+          id: page.id,
+          slug: "/datasets/" + page.slug,
+          ...page.frontmatter,
+        });
         return;
       case "tool":
-        tools.push({ slug: "/tools/" + page.slug, ...page.frontmatter });
+        tools.push({
+          id: page.id,
+          slug: "/tools/" + page.slug,
+          ...page.frontmatter,
+        });
         return;
       case "tutorial":
         tutorials.push({
+          id: page.id,
           slug: "/tutorials/" + page.slug,
           ...page.frontmatter,
         });
         return;
       case "paper":
-        papers.push({ slug: "/papers/" + page.slug, ...page.frontmatter });
+        papers.push({
+          id: page.id,
+          slug: "/papers/" + page.slug,
+          ...page.frontmatter,
+        });
         return;
       default:
         return;
@@ -387,6 +313,11 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   papers.sort((a, b) => a.name.localeCompare(b.name));
   datasets.sort((a, b) => a.name.localeCompare(b.name));
   tutorials.sort((a, b) => a.name.localeCompare(b.name));
+
+  toolsIndex.addDocuments(tools);
+  datasetsIndex.addDocuments(datasets);
+  tutorialsIndex.addDocuments(tutorials);
+  papersIndex.addDocuments(papers);
 
   // *************
   // *** TOOLS ***
@@ -402,11 +333,13 @@ export const SearchContextProvider: React.FC = ({ children }) => {
     const tags = _getTagsWithCountsTools(tools);
     _setAllTagsTools(tags);
     _setFilteredTools(tools);
+    didMount.current = true;
   }, []);
 
   useEffect(() => {
+    if (!didMount.current) return;
     if (searchInputTools) {
-      const filteredTools = _filterOnSearchTermTools(tools, searchInputTools);
+      const filteredTools = toolsIndex.search(searchInputTools);
       _setFilteredTools(filteredTools);
       _setActiveTagTools(null);
     } else {
@@ -415,31 +348,36 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   }, [searchInputTools]);
 
   useEffect(() => {
+    if (!didMount.current) return;
     if (activeTagTools) {
-      const filteredTools = tools.filter((tool) =>
-        tool.tags.includes(activeTagTools.name)
+      _setFilteredTools((oldFilteredTools) =>
+        oldFilteredTools.filter((tool) =>
+          tool.tags.includes(activeTagTools.name)
+        )
       );
-      _setFilteredTools(filteredTools);
     } else {
       _setFilteredTools(tools);
     }
   }, [activeTagTools]);
 
   useEffect(() => {
+    if (!didMount.current) return;
     if (sortInputTools) {
-      const sortedTools = tools.sort((a, b) => {
-        switch (sortInputTools) {
-          case "name":
-            return a.name.localeCompare(b.name);
-          case "date":
-            return (
-              new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-            );
-          default:
-            return 0;
-        }
-      });
-      _setFilteredTools(sortedTools);
+      _setFilteredTools((oldFilteredTools) =>
+        oldFilteredTools.sort((a, b) => {
+          switch (sortInputTools) {
+            case "name":
+              return a.name.localeCompare(b.name);
+            case "date":
+              return (
+                new Date(b.createdAt).getTime() -
+                new Date(a.createdAt).getTime()
+              );
+            default:
+              return 0;
+          }
+        })
+      );
     } else {
       _setFilteredTools(tools);
     }
@@ -465,14 +403,13 @@ export const SearchContextProvider: React.FC = ({ children }) => {
     const tags = _getTagsWithCountsDatasets(datasets);
     _setAllTagsDatasets(tags);
     _setFilteredDatasets(datasets);
+    didMount.current = true;
   }, []);
 
   useEffect(() => {
+    if (!didMount.current) return;
     if (searchInputDatasets) {
-      const filteredDatasets = _filterOnSearchTermDatasets(
-        datasets,
-        searchInputDatasets
-      );
+      const filteredDatasets = datasetsIndex.search(searchInputDatasets);
       _setFilteredDatasets(filteredDatasets);
       _setActiveTagDatasets(null);
     } else {
@@ -481,41 +418,40 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   }, [searchInputDatasets]);
 
   useEffect(() => {
+    if (!didMount.current) return;
     if (activeTagDatasets) {
-      const filteredDatasets = datasets.filter((dataset) =>
-        dataset.tags.includes(activeTagDatasets.name)
+      _setFilteredDatasets((oldFilteredDatasets) =>
+        oldFilteredDatasets.filter((dataset) =>
+          dataset.tags.includes(activeTagDatasets.name)
+        )
       );
-      _setFilteredDatasets(filteredDatasets);
     } else {
       _setFilteredDatasets(datasets);
     }
   }, [activeTagDatasets]);
 
   useEffect(() => {
+    if (!didMount.current) return;
     if (sortInputDatasets) {
-      const sortedDatasets = datasets.sort((a, b) => {
-        switch (sortInputDatasets) {
-          case "name":
-            return a.name.localeCompare(b.name);
-          case "date":
-            return (
-              new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-            );
-          default:
-            return 0;
-        }
-      });
-      _setFilteredDatasets(sortedDatasets);
+      _setFilteredDatasets((oldFilteredDatasets) =>
+        oldFilteredDatasets.sort((a, b) => {
+          switch (sortInputDatasets) {
+            case "name":
+              return a.name.localeCompare(b.name);
+            case "date":
+              return (
+                new Date(b.createdAt).getTime() -
+                new Date(a.createdAt).getTime()
+              );
+            default:
+              return 0;
+          }
+        })
+      );
     } else {
       _setFilteredDatasets(datasets);
     }
   }, [sortInputDatasets]);
-
-  useEffect(() => {
-    const tags = _getTagsWithCountsDatasets(datasets);
-    _setAllTagsDatasets(tags);
-    _setFilteredDatasets(datasets);
-  }, []);
 
   const setSearchDatasets = (newValue: string) =>
     _setSearchInputDatasets(newValue);
@@ -538,15 +474,16 @@ export const SearchContextProvider: React.FC = ({ children }) => {
     const tags = _getTagsWithCountsPapers(papers);
     _setAllTagsPapers(tags);
     _setFilteredPapers(papers);
+    didMount.current = true;
   }, []);
 
   useEffect(() => {
+    if (!didMount.current) return;
     if (searchInputPapers) {
-      const filteredPapers = _filterOnSearchTermPapers(
-        papers,
-        searchInputPapers
-      );
-      _setFilteredPapers(filteredPapers);
+      const searchPapers = papersIndex.search(searchInputPapers);
+      console.log(searchInputPapers);
+      console.log(searchPapers);
+      _setFilteredPapers(searchPapers);
       _setActiveTagPapers(null);
     } else {
       _setFilteredPapers(papers);
@@ -554,41 +491,40 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   }, [searchInputPapers]);
 
   useEffect(() => {
+    if (!didMount.current) return;
     if (activeTagPapers) {
-      const filteredPapers = papers.filter((paper) =>
-        paper.tags.includes(activeTagPapers.name)
+      _setFilteredPapers((oldFilteredPapers) =>
+        oldFilteredPapers.filter((paper) =>
+          paper.tags.includes(activeTagPapers.name)
+        )
       );
-      _setFilteredPapers(filteredPapers);
     } else {
       _setFilteredPapers(papers);
     }
   }, [activeTagPapers]);
 
   useEffect(() => {
+    if (!didMount.current) return;
     if (sortInputPapers) {
-      const sortedPapers = papers.sort((a, b) => {
-        switch (sortInputPapers) {
-          case "name":
-            return a.name.localeCompare(b.name);
-          case "date":
-            return (
-              new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-            );
-          default:
-            return 0;
-        }
-      });
-      _setFilteredPapers(sortedPapers);
+      _setFilteredPapers((oldFilteredPapers) =>
+        oldFilteredPapers.sort((a, b) => {
+          switch (sortInputPapers) {
+            case "name":
+              return a.name.localeCompare(b.name);
+            case "date":
+              return (
+                new Date(b.createdAt).getTime() -
+                new Date(a.createdAt).getTime()
+              );
+            default:
+              return 0;
+          }
+        })
+      );
     } else {
       _setFilteredPapers(papers);
     }
   }, [sortInputPapers]);
-
-  useEffect(() => {
-    const tags = _getTagsWithCountsPapers(papers);
-    _setAllTagsPapers(tags);
-    _setFilteredPapers(papers);
-  }, []);
 
   const setSearchPapers = (newValue: string) => _setSearchInputPapers(newValue);
   const setActiveTagPapers = (newTag: Tag) => _setActiveTagPapers(newTag);
@@ -612,14 +548,13 @@ export const SearchContextProvider: React.FC = ({ children }) => {
     const tags = _getTagsWithCountsTutorials(tutorials);
     _setAllTagsTutorials(tags);
     _setFilteredTutorials(tutorials);
+    didMount.current = true;
   }, []);
 
   useEffect(() => {
+    if (!didMount.current) return;
     if (searchInputTutorials) {
-      const filteredTutorials = _filterOnSearchTermTutorials(
-        tutorials,
-        searchInputTutorials
-      );
+      const filteredTutorials = tutorialsIndex.search(searchInputTutorials);
       _setFilteredTutorials(filteredTutorials);
       _setActiveTagTutorials(null);
     } else {
@@ -628,41 +563,40 @@ export const SearchContextProvider: React.FC = ({ children }) => {
   }, [searchInputTutorials]);
 
   useEffect(() => {
+    if (!didMount.current) return;
     if (activeTagTutorials) {
-      const filteredTutorials = tutorials.filter((tutorial) =>
-        tutorial.tags.includes(activeTagTutorials.name)
+      _setFilteredTutorials((oldFilteredTutorials) =>
+        oldFilteredTutorials.filter((tutorial) =>
+          tutorial.tags.includes(activeTagTutorials.name)
+        )
       );
-      _setFilteredTutorials(filteredTutorials);
     } else {
       _setFilteredTutorials(tutorials);
     }
   }, [activeTagTutorials]);
 
   useEffect(() => {
+    if (!didMount.current) return;
     if (sortInputTutorials) {
-      const sortedTutorials = tutorials.sort((a, b) => {
-        switch (sortInputTutorials) {
-          case "name":
-            return a.name.localeCompare(b.name);
-          case "date":
-            return (
-              new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-            );
-          default:
-            return 0;
-        }
-      });
-      _setFilteredTutorials(sortedTutorials);
+      _setFilteredTutorials((oldFilteredTutorials) =>
+        oldFilteredTutorials.sort((a, b) => {
+          switch (sortInputTutorials) {
+            case "name":
+              return a.name.localeCompare(b.name);
+            case "date":
+              return (
+                new Date(b.createdAt).getTime() -
+                new Date(a.createdAt).getTime()
+              );
+            default:
+              return 0;
+          }
+        })
+      );
     } else {
       _setFilteredTutorials(tutorials);
     }
   }, [sortInputTutorials]);
-
-  useEffect(() => {
-    const tags = _getTagsWithCountsTutorials(tutorials);
-    _setAllTagsTutorials(tags);
-    _setFilteredTutorials(tutorials);
-  }, []);
 
   const setSearchTutorials = (newValue: string) =>
     _setSearchInputTutorials(newValue);
